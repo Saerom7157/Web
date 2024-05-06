@@ -1,0 +1,13 @@
+form
+
+
+<input type="text"><br> //텍스트
+    <input type="password"><br> //페스워드
+    <input type="date"><br> //날짜
+    <input type="time"><br> //시간
+    <input type="range"><br> //범위
+    <input type="color"><br> //색갈
+    <input type="radio"><br> //남자인지 여자인지
+    <input type="checkbox"><br> //체크박스
+    <input type="file"><br> //파일
+    <textarea name="" id="" cols="30" rows="10"></textarea> //글자를 적을수 있는공간 늘리고 줄이고 할수 있음
