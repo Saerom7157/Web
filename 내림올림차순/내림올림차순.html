@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="p"></h1>
+  <button id="btn1">올림차순</button>
+  <button id="btn2">내림차순</button>
+
+    <div class="goodsList"></div>
+    <ul id="itemList"></ul>
+  <script>
+
+    const data = [
+      {
+        "idx": 1,
+        "img": "goods/01.jpg",
+        "sale": 12000,
+        "title": "바지",
+        "price": "3,500",
+        "group": "의류"
+      },
+      {
+        "idx": 2,
+        "img": "goods/02.jpg",
+        "sale": 17500,
+        "title": "티셔츠",
+        "price": "23,000",
+        "group": "의류"
+      }
+    ]
+    
+
+
+    const btn1 = document.querySelector('#btn1');
+    const btn2 = document.querySelector('#btn2');
+    const itemList = document.querySelector('#itemList');
+
+    btn1.addEventListener('click', function() {
+      const fillContent1 = data.sort((a, b) => a.sale - b.sale)
+      $('.goodsList > div').remove()
+        fillContent1.forEach(item => {
+          $('.goodsList').append(`
+              <div class="sellBox" sale="${item.sale}">
+                  <div class="sellBox2"></div>
+                  <img src="./public/images/${item.img}">
+                  <div class="sellBox3">
+                      <p class="tit">${item.title}</p> 
+                      <p class="price">가격 : ₩${item.price}</p>
+                      <p class="sale">판매량 : ${item.sale}개</p>
+                      <p class="cate">카테고리 : ${item.group}</p>
+                  </div>
+              </div>
+          `)
+        })
+    })
+
+
+    btn2.addEventListener('click', function() {
+    const fillContent2 = data.sort((a,b) => b.sale - a.sale)
+    $('.goodsList > div').remove()
+      fillContent2.forEach(item => {
+        $('.goodsList').append(`
+            <div class="sellBox" sale="${item.sale}">
+                <div class="sellBox2"></div>
+                <img src="./public/images/${item.img}">
+                <div class="sellBox3">
+                    <p class="tit">${item.title}</p> 
+                    <p class="price">가격 : ₩${item.price}</p>
+                    <p class="sale">판매량 : ${item.sale}개</p>
+                    <p class="cate">카테고리 : ${item.group}</p>
+                </div>
+            </div>
+        `)
+      })
+    })
+      
+  </script>
+</body>
+</html>
