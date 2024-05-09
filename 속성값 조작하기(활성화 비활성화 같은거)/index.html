@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <title>Document</title>
+</head>
+<body>
+  <select name="day" id="day" disabled="disabled">
+    <option value="월">월</option>
+    <option value="화">화</option>
+    <option value="수">수</option>
+    <option value="목">목</option>
+    <option value="금">금</option>
+    <option value="토">토</option>
+    <option value="일">일</option>
+  </select>
+
+  <button id="toggleButton">활성화/비활성화</button>
+
+  <script>
+    //prop = prop() 메소드는 선택한 요소의 속성을 가져오거나 설정하는 데 사용됩니다.
+    //여기서 'disabled'는 조작하려는 속성의 이름입니다.
+
+
+    $(document).ready(function() {
+      $('#toggleButton').click(function() {
+
+        //index = 현제 요소의 인덱스를 나타냅니다. val = 'disabled' 속성값입니다(조작하려는 속성의 속성값이다라고 생각하면됨)
+        //prop 에 있는 disabled 은 조작하려는 속성값임 그래서 뒤에 함수를 집어 넣어서 값을 정해주는 것임
+
+        $('#day').prop('disabled', function(index, val) {
+
+          //val값을 논ㄹ리적 반대값을 반환한다라고 생각을 하면됨 (쉽게 말해서 그냥 val 값에 반대 값을 하게 되는것임)
+          return !val;
+
+        });
+
+        //위에 있는 것 까지 설명을 하자면 버튼을 click을 했을때 day에 있는 disabled 이 (val)값을 !val (값을 반대로) 해주는 것임
+        //그래서 반환을 하면 val 값에(!val)로 되겠죠?!
+        
+        //이것까지 알면 됨
+      });
+    });
+
+  </script>
+</body>
+</html>
