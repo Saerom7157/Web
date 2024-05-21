@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Set Checkbox Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <p id="total"></p>
+  <script>
+    
+    //자바스크립트 내장함수 4개(reduce,find,filter,sort)
+
+        //reduce 예제
+        // const data = [
+        //     { name: "1번", sale: 30 },
+        //     { name: "2번", sale: 24 },
+        //     { name: "3번", sale: 42 }
+        // ];
+
+        // const total = data.reduce((sum, item) => sum + item.sale, 0);
+        
+        // document.getElementById('total').textContent = `총 sale 을 더한 '값' ${total}`;
+
+
+
+
+
+
+
+        //find 예제
+        // const data = [
+        //     { name: "1번", sale: 35 },
+        //     { name: "2번", sale: 24 },
+        //     { name: "3번", sale: 42 }
+        // ];
+
+        // const total = data.find(sum => sum.sale > 30);//30보다 큰 sale 값에서 첫번째 값만 출력함
+
+        // document.getElementById('total').textContent = `30보다 큰 sale 값에서 첫번째 값 "${total.name}"`;
+
+
+
+
+
+
+
+
+
+        //filter 예제
+        // const data = [
+        //     { name: "1번", sale: 35 },
+        //     { name: "2번", sale: 24 },
+        //     { name: "3번", sale: 42 }
+        // ];
+
+        // const total = data.filter(sum => sum.sale > 30);//30보다 큰 sale 값에서 모든 값을 출력함
+        // const listContainer = document.getElementById('total');
+
+        // total.forEach(item => {
+        //   const list = document.createElement('div');
+        //   list.textContent = `30보다 큰 sale 값에서 모든 값 "${item.name}"`;
+        //   listContainer.appendChild(list)
+        // })
+
+
+
+
+
+        //sort 예제
+        // const data = [
+        //     { name: "1번", sale: 35 },
+        //     { name: "2번", sale: 24 },
+        //     { name: "3번", sale: 42 }
+        // ];
+
+        // const sortItem = data.sort((a,b) => a.sale - b.sale);
+        // const listContainer = document.getElementById('total');
+
+        // sortItem.forEach(item => {
+        //   const list = document.createElement('div');
+        //   list.textContent = `30보다 큰 sale 값에서 모든 값 "${item.name}"`;
+        //   listContainer.appendChild(list)
+        // })
+  </script>
+
+</body>
+</html>

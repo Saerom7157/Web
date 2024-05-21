@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 및 로그인</title>
+</head>
+<body>
+    <h2>회원가입</h2>
+    <form action="register_login.php" method="post">
+        Username: <input type="text" name="username" required><br>
+        Email: <input type="email" name="email" required><br>
+        Password: <input type="password" name="password" required><br>
+        <button id="btn2" type="submit" name="action" value="회원가입">회원가입</button>
+    </form>
+
+    <h2>로그인</h2>
+    <form action="register_login.php" method="post">
+        Username: <input type="text" name="username" required><br>
+        Password: <input type="password" name="password" required><br>
+        <button id="btn1" type="submit" name="action" value="로그인">로그인</button>
+    </form>
+
+    <script>
+        // let btn1 = document.getElementById('btn2');
+        // btn1.addEventListener('click', function() {
+        //     btn1.value = "안녕하세요";
+        //     console.log(btn1.value)
+        // })
+    </script>
+</body>
+</html>
