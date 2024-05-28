@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+/* 빠른조회 서비스 */
+#inc01{margin-top:40px}
+#inc01 .icon_box{display:flex;align-items:center;justify-content:center;position:relative;height:152px;border-radius:15px;background:#fff;box-shadow:3px 5px 24px 0px rgba(0, 0, 0, 0.02)}
+#inc01 .icon_box .tit{position:relative;font-size:22px;line-height:1.4;color:#222;white-space:pre-line;font-family:'LotteMartDreamBold'}
+#inc01 .icon_box ul{display:flex;align-items:center;padding-left:60px}
+#inc01 .icon_box ul li{position:relative;width:160px;text-align:center}
+#inc01 .icon_box ul li+li:before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:45px;background:#e1e1e1}
+#inc01 .icon_box ul li img{opacity:.35;transition:all .2s}
+#inc01 .icon_box ul li p{margin-top:10px;font-size:16px;font-family:'LotteMartDreamBold'}
+#inc01 .icon_box ul li a{display:block;height:100%;color:#222}
+#inc01 .icon_box ul li:hover img{opacity:.6}
+
+/* 아이콘 링크*/
+#inc01 .icon_list{display:flex;align-items:center;justify-content:center;padding:50px 0 0}
+#inc01 .icon_list li+li{margin-left:80px}
+#inc01 .icon_list li a{display:flex;align-items:center}
+#inc01 .icon_list li div{padding-left:20px;font-size:14px;color:#888;font-family:'notokr-regular'}
+#inc01 .icon_list li p{font-size:18px;color:#222;font-family:'LotteMartDreamBold'}

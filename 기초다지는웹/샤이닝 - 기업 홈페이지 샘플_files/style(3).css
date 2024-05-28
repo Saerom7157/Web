@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/* 빠른메뉴 */
+#inc02 .quick{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;height:340px}
+#inc02 .quick li{height:160px;border-radius:15px;background-color:#fff}
+#inc02 .quick li a{position:relative;display:block;height:100%;padding:20px 0 0 25px;font-size:14px;color:#888;font-family:'notokr-regular'}
+#inc02 .quick li p{margin-bottom:5px;font-size:18px;color:#222;font-family:'LotteMartDreamBold'}
+#inc02 .quick li .pl{line-height:1.6;white-space:pre-line}
+#inc02 .quick li img{position:absolute;bottom:20px;right:20px}
+#inc02 .quick li:hover{box-shadow:3px 5px 18px 0px rgba(0, 0, 0, 0.06);transition:0.5s}
+
+/* 이벤트 */
+#inc02 .event{margin:25px 0;}
+#inc02 .event .tit{display:flex;align-items:center;padding-bottom:8px;color:#222;font-size:22px;font-family:'LotteMartDreamBold'}
+#inc02 .event .control{display:flex;position:relative;width:60px;margin-left:auto}
+#inc02 .event .control:before{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);content:"";;width:1px;height:10px;background:#ccc}
+#inc02 .event .control span{display:flex;align-items:center;width:50%;cursor:pointer}
+#inc02 .event .control span.next img{margin-left:auto}
+
+/* 라테스트 */
+#inc02 .latest .tit{display:flex;align-items:center;justify-content:space-between;padding-bottom:8px;margin-bottom:20px;border-bottom:1px solid #ddd;font-size:22px;color:#222;font-family:'LotteMartDreamBold'}
+#inc02 .latest .tit a{font-size:14px;color:#888;transition:all .2s;font-family:'notokr-medium'}
+#inc02 .latest .tit a:hover{color:#222}
+#inc02 .latest ul li a{display:flex;align-items:center;color:#888}
+#inc02 .latest ul li+li{margin-top:10px}
+#inc02 .latest ul li .status{width:46px;height:22px;border:1px solid #ddd;border-radius:20px;line-height:20px;font-size:13px;background-color:#fff;text-align:center;font-family:'notokr-medium'}
+#inc02 .latest ul li .subj{padding-left:8px;font-size:14px;color:#222;font-family:'notokr-medium'}
+#inc02 .latest ul li .date{flex-shrink:0;margin-left:auto}
