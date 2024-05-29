@@ -74,7 +74,7 @@ header {
 
 .main_section{
     width: 100%;
-    height: 930px;
+    height: 967px;
     background-color: #f5f6f8;
     display: flex;
     justify-content: center;
@@ -84,7 +84,7 @@ header {
     display: flex;
     position: relative;
     width: 1320px;
-    height: 100%;
+    height: 930px;
     margin-top: 30px;
 }
 
@@ -94,10 +94,10 @@ header {
     height: 100%;
 }
 .main_right{
+    margin-left: 20px;
     position: relative;
-    width: calc(1320px - 880px);
+    width: 420px;
     height: 100%;
-    background-color: rgb(255, 225, 0);
 }
 
 .slide_area{
@@ -105,7 +105,7 @@ header {
     width: 860px;
     height: 585px;
     border-radius: 15px;
-    background-image: url(bnr01_01.jpg);
+    background-image: url('bnr01_01.jpg');
 }
 
 
@@ -189,4 +189,95 @@ header {
     font-size: 14px;
     font-weight: 800;
     color: #888;
+}
+
+
+.right_area {
+    position: relative;
+    width: 420px;
+    height: 340px;
+}
+
+.right_area>ul {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.right_area>ul>li {
+    position: relative;
+    display: block;
+    align-items: center;
+    width: 202.5px;
+    height: 159.99px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 30px;
+}
+.right_img {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+
+
+.slide2_area{
+    margin-top: 15px;
+    width: 421px;
+    height: 251px;
+    border-radius: 15px;
+    background-image: url('event01.png');
+}
+
+.Notice_area{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d6767600;
+}
+
+.Notice_ul{
+    width: 420px;
+    height: 130px;
+    justify-content: end;
+}
+
+.Notice_ul>ul>li{
+    margin-top: 15px;
+    display: flex;
+}
+
+.p_btn{
+    position: relative;
+    display: flex;
+    width: 46px;
+    height: 22px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #888;
+    background-color: white;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+}
+
+.p_title{
+    position: relative;
+    color: #222;
+    font-size: 14px;
+    font-weight: 800;
+    flex-grow: 1;
+}
+
+.p_end{
+    position: relative;
+    display: flex;
+    font-size: 14px;
+    color: #888;
+    justify-content: flex-end;
 }

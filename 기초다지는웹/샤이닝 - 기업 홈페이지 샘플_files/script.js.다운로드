@@ -1,9 +1,0 @@
-﻿$(document).ready(function(){
-	$(".sh_nav").mouseenter(function(){
-	 	$(".sh_lnb_s").fadeIn(200);
-		$(".sh_lnb_bg").fadeIn(200);	
-	}).mouseleave(function(){
-		$('.sh_lnb_s').stop().fadeOut(200);
-	  	$('.sh_lnb_bg').stop().fadeOut(200);
-	});
-});
