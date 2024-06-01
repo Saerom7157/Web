@@ -28,7 +28,7 @@
     display: flex;
     width: 326px;
     height: 58px;
-    background-image: url("logo.png");
+    background-image: url("img/logo.png");
     background-size: cover;
     background-position: center;
 }
@@ -121,9 +121,9 @@
 .visual{
     width: 100%;
     height: 866px;
-    background: url(visual_bg01.png
+    background: url(img/visual_bg01.png
         ) no-repeat top left / auto 100%, url(
-            visual_bg02.png) no-repeat
+            img/visual_bg02.png) no-repeat
             bottom right / auto 100%;
 }
 
@@ -141,7 +141,7 @@
     position: relative;
     overflow: hidden;
     width: 2000px;
-    height: 500px;
+    height: 600px;
     box-shadow: 0px 0px 20px rgb(161, 161, 161);
 }
 
@@ -155,6 +155,7 @@
     background-size: cover;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    
 }
 
 @keyframes slider {
@@ -195,7 +196,7 @@
 
 }
 .visual-title{
-    background-image: url(visual_ti.png);
+    background-image: url(img/visual_ti.png);
     background-position: center;
     background-size: cover;
     width: 413px;
@@ -213,6 +214,16 @@
 }
 
 
+
+
+/*로그인,회원가입, on off*/
+.popup{
+    
+    display: none;
+}
+.close{
+    cursor: pointer;
+}
 
 
 @media (max-width: 1500px) {

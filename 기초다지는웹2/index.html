@@ -42,12 +42,12 @@
         <div class="visual">
             <div class="visual-wrap">
                 <div class="slider">
-                    <div class="slide" style="background-image: url('visual01.jpg');"></div>
-                    <div class="slide" style="background-image: url('visual02.jpg');"></div>
-                    <div class="slide" style="background-image: url('visual03.jpg');"></div>
-                    <div class="slide" style="background-image: url('visual04.jpg');"></div>
-                    <div class="slide" style="background-image: url('visual05.jpg');"></div>
-                    <div class="slide" style="background-image: url('visual06.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/visual01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/visual02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/visual03.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/visual04.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/visual05.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/visual06.jpg');"></div>
                 </div>
                 
                 
@@ -70,19 +70,17 @@
         </div>
     </section>
 
-
+    
 
      <!-- 로그인 팝업 -->
-     <div id="login-popup" class="popup">
+    <div id="login-popup" class="popup">
         <div class="popup-content">
             <span class="close" id="close-login">&times;</span>
-            <h2>Login</h2>
-            <form id="login-form">
-                <label for="login-username">Username:</label><br>
-                <input type="text" id="login-username" name="username"><br>
-                <label for="login-password">Password:</label><br>
-                <input type="password" id="login-password" name="password"><br><br>
-                <input type="submit" value="Login">
+            <h2>로그인</h2>
+            <form action="register_login.php" method="post">
+                Username: <input type="text" name="username" required><br>
+                Password: <input type="password" name="password" required><br>
+                <button type="submit" name="action" value="로그인">로그인</button>
             </form>
         </div>
     </div>
@@ -91,17 +89,16 @@
     <div id="register-popup" class="popup">
         <div class="popup-content">
             <span class="close" id="close-register">&times;</span>
-            <h2>Register</h2>
-            <form id="register-form">
-                <label for="register-username">Username:</label><br>
-                <input type="text" id="register-username" name="username"><br>
-                <label for="register-password">Password:</label><br>
-                <input type="password" id="register-password" name="password"><br><br>
-                <input type="submit" value="Register">
+            <h2>회원가입</h2>
+            <form action="register_login.php" method="post">
+                Username: <input type="text" name="username" required><br>
+                Email: <input type="email" name="email" required><br>
+                Password: <input type="password" name="password" required><br>
+                <button type="submit" name="action" value="회원가입">회원가입</button>
             </form>
         </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
