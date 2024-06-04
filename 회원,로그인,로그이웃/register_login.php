@@ -88,17 +88,18 @@ try {
             } else {
                 echo "로그인 실패: 사용자 이름 또는 비밀번호가 잘못되었습니다.";
             }
+            
 
             // JavaScript 로그아웃 확인 함수
             echo "<script>
             function confirmLogout() {
-                var logoutBtn = confirm('로그아웃을 하시겠습니까?');
-                if(logoutBtn) {
-                    window.localhost.href = 'logout.php';
-                } else {
-                    alert('로아웃이 취소되었습니다');
+                    var logoutBtn = confirm('로그아웃을 하시겠습니까?');
+                    if (logoutBtn) {
+                        window.location.href = 'index.html'; // 올바른 속성 사용
+                    } else {
+                        alert('로그아웃이 취소되었습니다');
+                    }
                 }
-            }
             </script>";
         }
     }
