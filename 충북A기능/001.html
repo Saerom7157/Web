@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        .image-zoom{
+            width: 100%;
+            height: 100%;
+            background-image: url('./images/hotspot.png');
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            transition: 0.5s;
+        }
+        .box {
+            position: absolute;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.753);
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        label{
+            display: inline-block;
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+        }
+        input[type="radio"]{
+            display: none;
+        }
+        input[type="radio"]:checked + label {
+            background-color: rgb(49, 221, 135);
+        }
+
+        
+        #cou1:checked ~ .image-container:hover .box:nth-of-type(2),
+        #cou2:checked ~ .image-container:hover .box:nth-of-type(3),
+        #cou3:checked ~ .image-container:hover .box:nth-of-type(4),
+        #cou4:checked ~ .image-container:hover .box:nth-of-type(5),
+        #cou5:checked ~ .image-container:hover .box:nth-of-type(6),
+        #cou6:checked ~ .image-container:hover .box:nth-of-type(7) {
+            opacity: 1;
+        }
+        #cou1:checked ~ .image-container .box:nth-of-type(2),
+        #cou2:checked ~ .image-container .box:nth-of-type(3),
+        #cou3:checked ~ .image-container .box:nth-of-type(4),
+        #cou4:checked ~ .image-container .box:nth-of-type(5),
+        #cou5:checked ~ .image-container .box:nth-of-type(6),
+        #cou6:checked ~ .image-container .box:nth-of-type(7) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #cou1:checked ~ .image-container .image-zoom{
+            transform: scale(5);
+            transform-origin: 0 0;
+        }
+        #cou2:checked ~ .image-container .image-zoom{
+            transform: scale(5);
+            transform-origin: 18% 18%;
+        }
+        #cou3:checked ~ .image-container .image-zoom{
+            transform: scale(5);
+            transform-origin: 40% 42%;
+        }
+        #cou4:checked ~ .image-container .image-zoom{
+            transform: scale(5);
+            transform-origin: 37% 65%;
+        }
+        #cou5:checked ~ .image-container .image-zoom{
+            transform: scale(5);
+            transform-origin: 86% 70%;
+        }
+        #cou6:checked ~ .image-container .image-zoom{
+            transform: scale(5);
+            transform-origin: 91% 47%;
+        }
+        #cou7:checked ~ .image-container .image-zoom{
+            transform: scale(1);
+        }
+</style>
+
+</head>
+<body>
+    <input type="radio" name="cou" id="cou1" checked>
+    <label for="cou1">신라대종</label>
+    <input type="radio" name="cou" id="cou2">
+    <label for="cou2">신라대종</label>
+    <input type="radio" name="cou" id="cou3">
+    <label for="cou3">신라대종</label>
+    <input type="radio" name="cou" id="cou4">
+    <label for="cou4">신라대종</label>
+    <input type="radio" name="cou" id="cou5">
+    <label for="cou5">신라대종</label>
+    <input type="radio" name="cou" id="cou6">
+    <label for="cou6">신라대종</label>
+    <input type="radio" name="cou" id="cou7">
+    <label for="cou7">전채보기</label>
+
+    <div class="image-container">
+        <div class="image-zoom"></div>
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</body>
+</html>
