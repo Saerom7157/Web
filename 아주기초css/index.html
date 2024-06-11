@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표 예제</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #d3d3d3;
+        }
+        th, td:first-child {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+<h2 style="text-align:center;">과제 도면</h2>
+<table>
+    <thead>
+    <tr>
+        <th>구분</th>
+        <th>메뉴</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td rowspan="4">메인메뉴</td>
+        <td>문화관광축제</td>
+    </tr>
+    <tr>
+        <td>전국 축제</td>
+    </tr>
+    <tr>
+        <td>축제 안내</td>
+    </tr>
+    <tr>
+        <td>축제 탐방</td>
+    </tr>
+    <tr>
+        <td rowspan="2">부가메뉴</td>
+        <td>로그인</td>
+    </tr>
+    <tr>
+        <td>회원가입</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

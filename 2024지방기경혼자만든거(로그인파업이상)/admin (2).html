@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="public/bootstrap-5.2.0-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Admin Dashboard - Holiday and Payment Approval</h2>
+
+        <!-- Section for Holiday Management -->
+        <div class="holiday-management">
+            <h3>Holiday Management</h3>
+            <form id="holidayForm">
+                <div class="mb-3">
+                    <label for="date" class="form-label">Select Date:</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
+                <div class="mb-3">
+                    <label for="time" class="form-label">Select Time (Optional):</label>
+                    <input type="time" class="form-control" id="time" name="time">
+                </div>
+                <button type="submit" class="btn btn-primary">Set as Holiday</button>
+            </form>
+        </div>
+
+        <!-- Section for Payment Approval -->
+        <div class="payment-approval mt-5">
+            <h3>Payment Approval</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Reservation ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">League</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Min. People</th>
+                        <th scope="col">Fee</th>
+                        <th scope="col">Payment Status</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data should be fetched and displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="public/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Logic for setting holidays and processing payment approvals
+        document.getElementById('holidayForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Implement AJAX call to backend to set the holiday
+            alert('Holiday has been set successfully.');
+        });
+
+        // Placeholder actions for payment approval, replace with actual logic
+        function approvePayment(reservationId) {
+            // Implement AJAX call to approve payment
+            alert('Payment has been approved for reservation ID: ' + reservationId);
+        }
+    </script>
+</body>
+</html>
