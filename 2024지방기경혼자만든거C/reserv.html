@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+    <link rel="stylesheet" href="public/bootstrap-5.2.0-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Reservation</h2>
+        <form id="reservForm">
+            <div class="mb-3">
+                <label for="league" class="form-label">League:</label>
+                <select class="form-select" id="league" required>
+                    <option value="night">Night</option>
+                    <option value="weekend">Weekend</option>
+                    <option value="dawn">Dawn</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date:</label>
+                <input type="date" class="form-control" id="date" required>
+            </div>
+            <div class="mb-3">
+                <label for="time" class="form-label">Time:</label>
+                <select class="form-select" id="time" required>
+                    <option value="19:00">19:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="04:00">04:00</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="minPeople" class="form-label">Min People:</label>
+                <input type="number" class="form-control" id="minPeople" value="20" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Reserve</button>
+        </form>
+    </div>
+
+    <script src="public/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('reservForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Reservation submitted. Waiting for approval.');
+        });
+    </script>
+</body>
+</html>
