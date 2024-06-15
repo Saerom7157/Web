@@ -1,0 +1,752 @@
+*{
+  box-sizing: border-box;
+}
+
+
+.container, .container-fluid{
+  max-width: 1320px;
+  border-bottom: 0.8px solid #aaaaac;
+}
+
+.nav-link{
+  border-radius: 10px;
+
+}
+.nav-link:hover{
+  background-color: rgb(255, 145, 0);
+  border-radius: 10px;
+}
+
+
+.slider{
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 800px;
+}
+
+/* 비주얼 영역은 선생님이 예전에 알려주신 데로 만들었습니다.*/
+.slide{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 800px;
+  background-position: center;
+  background-size: cover;
+
+  animation: slider 8s infinite normal linear;
+}
+
+.slide:nth-child(1){
+  animation-delay: 0;
+}
+.slide:nth-child(2){
+  animation-delay: -2s;
+}
+.slide:nth-child(3){
+  animation-delay: -4s;
+}
+.slide:nth-child(4){
+  animation-delay: -6s;
+}
+@keyframes slider{
+  0%{
+    transform: translateX(0);
+  }
+  19%{
+    transform: translateX(0);
+  }
+  25%{
+    transform: translateX(-100%);
+    animation-timing-function: step-end;
+  }
+  94%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
+/* information 영역 */
+.information {
+  background-image: url('/public/images/1x/information.png');
+  width: 100%;
+  height: 945px;
+  position: relative;
+}
+
+.information h2{
+  font-size: 40px;
+  color: #be5252;
+  font-weight: bold;
+}
+
+.information .info{
+  position: absolute;
+  top: 450px;
+  left: 20px;
+  width: 540px;
+  text-align: justify;
+}
+
+.information .info .text{
+  font-size: 18px;
+}
+
+.information .info .text a{
+  display: inline-block;
+  font-size: 20px;
+  background-color: #828282;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+
+/* 금일경기현황 */
+.today{
+  margin: 20px;
+  text-align: center;
+}
+.today .teams{
+  width: 60%;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.today .teams img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.today .teams .team {
+  flex: 2;
+}
+
+.today .teams .team p {
+  margin: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.today .teams .score {
+  flex: 1;
+}
+
+.today .teams .score h2{
+  margin: 10px;
+  font-size: 50px;
+  color: #f00;
+}
+.today .teams .score button{
+  margin: 10px;
+  font-size: 30px;
+  border: none;
+  background-color: #383838;
+  color: white;
+  color: 5px 10px;
+}
+
+
+.calendar {
+  padding: 15px 0;
+}
+
+.calendar .calendar-title {
+  display: flex;
+  width: 1170px;
+  margin: 20px auto;
+}
+.calendar .calendar-title > div {
+  height: 150px;
+  line-height: 150px;
+  position: relative;
+}
+
+.calendar .calendar-title .y, .calendar .calendar-title .m-eng {
+  flex: 3;
+  font-size: 40px;
+  color: #aaaaac;
+  font-weight: 800;
+}
+
+.calendar .calendar-title a {
+  font-size: 30px;
+  text-decoration: none;
+  color: #aaaaac;
+} 
+
+.calendar .calendar-title .m {
+  text-align: center;
+  font-size: 150px;
+  color: #000;
+  font-weight: 800;
+}
+
+.calendar .calendar-title .y{
+  text-align: right;
+}
+.calendar .calendar-title .m-title {
+  text-align: left;
+}
+
+.calendar ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  list-style: none;
+  width: 1170px;
+  margin: 25px auto;
+}
+.calendar ul li {
+  width: 150px;
+  position: relative;
+}
+.calendar ul.weekdays li {
+  height: 50px;
+  background-color: #f48221;
+  line-height: 50px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+}
+.calendar ul.dates li {
+  height: 150px;
+  background-color: #999999;
+}
+.calendar ul.dates li.active {
+  height: 150px;
+  background-color:#ff1010;
+}
+.calendar ul.dates li.empty {
+  height: 150px;
+  background-color: #dbdbdb;
+}
+.calendar ul.dates li span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ddd;
+}
+.calendar ul.dates a.date-click {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 달력 영역 모달창 */
+#game-info-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 99;
+  animation: fadeIn 0.5s;
+}
+#game-info-modal .modal-content {
+  width: 700px;
+  height: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+
+  animation: slideDown 0.5s;
+}
+#game-info-modal .modal-content p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+#game-info-modal .modal-content a {
+  background-color: #000;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  font-size: 20px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+#game-info-modal:target {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+
+
+
+/* 랭킹영역 */
+.league, .top5 {
+  position: relative;
+  background-color: #f0f0f0;
+  padding-bottom: 30px;
+}
+
+.ranking input[type=radio] {
+  display: none;
+}
+
+.league-top, .top5-top {
+  background-color: #373737;
+  height: 150px;
+  line-height: 150px;
+  font-size: 100px;
+  font-weight: 800;
+  color: #fff;
+}
+.league-btns {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+}
+
+.rank-box .base {
+  position: absolute;
+  top: 85px;
+  right: 50px;
+}
+
+.league-top .league-btns-top {
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+}
+.league label {
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  background-color: #575757;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.league label:hover {
+  background-color: #ff2b2b;
+}
+
+.rank-box .ranks .rank  {
+  display: none;
+}
+
+#league1:checked ~ #base1:checked ~ .rank-box .ranks .night-pitcher,
+#league1:checked ~ #base2:checked ~ .rank-box .ranks .night-hitter,
+#league2:checked ~ #base1:checked ~ .rank-box .ranks .weekend-pitcher,
+#league2:checked ~ #base2:checked ~ .rank-box .ranks .weekend-hitter,
+#league3:checked ~ #base1:checked ~ .rank-box .ranks .morning-pitcher,
+#league3:checked ~ #base2:checked ~ .rank-box .ranks .morning-hitter {   
+  display: block;
+}
+
+#league1:checked ~ .league-btns label.league1,
+#league2:checked ~ .league-btns label.league2,
+#league3:checked ~ .league-btns label.league3 {
+  background-color: #f26222;
+}
+
+#base1:checked ~ .rank-box .base label.base1,
+#base2:checked ~ .rank-box .base label.base2 {
+  background-color: #f26222;
+}
+
+.rank p {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+.rank ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rank ul li {
+  margin: 15px 0;
+  background-color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 10px 20px;
+}
+.rank ul li span {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+
+
+/* top 5 영역 */
+.top {
+  width: 97%;
+  background-color: #fff;
+  height: 75px;
+  padding: 5px 20px;
+  margin: 5px auto;
+  position: relative;
+  border: 1px solid #888;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: height 0.8s;
+}
+.top1 {
+  margin-top: 30px;
+}
+.top label {
+  position: absolute;
+  color: #f26222;
+  right: 20px;
+  top : 15px;
+  font-size: 30px;
+  display: none;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.top p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#top1:not(:checked) ~ .top1 .top-content .top-check1, 
+#top2:not(:checked) ~ .top2 .top-content .top-check1, 
+#top3:not(:checked) ~ .top3 .top-content .top-check1, 
+#top4:not(:checked) ~ .top4 .top-content .top-check1, 
+#top5:not(:checked) ~ .top5 .top-content .top-check1, 
+#top6:not(:checked) ~ .top6 .top-content .top-check1 {
+  display: block;
+} 
+
+#top1:checked ~ .top1 .top-content .top-check2, 
+#top2:checked ~ .top2 .top-content .top-check2, 
+#top3:checked ~ .top3 .top-content .top-check2, 
+#top4:checked ~ .top4 .top-content .top-check2, 
+#top5:checked ~ .top5 .top-content .top-check2, 
+#top6:checked ~ .top6 .top-content .top-check2 {
+  display: block;
+}
+
+#top1:checked ~ .top1, 
+#top2:checked ~ .top2, 
+#top3:checked ~ .top3, 
+#top4:checked ~ .top4, 
+#top5:checked ~ .top5, 
+#top6:checked ~ .top6 {
+  height: 130px;
+}
+
+/* 갤러리영역 */
+.gallery {
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+  position: relative;
+  margin: 50px 0;
+}
+.gallery-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 480px;
+  line-height: 480px;
+  background-color: rgba(255,255, 255, 0.85);
+  padding-left: 50px;
+  color: #000;
+  font-size: 70px;
+  font-weight: 700;
+}
+.gallery .inner {
+  width: 1584px; /* 1320/5=264, 264*6 */
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 528px;
+  z-index: 1;
+  transition: left 1s;
+}
+
+.gallery .inner > div {
+  flex: 1;
+  height: 480px;
+  background-size: cover;
+}
+.gallery .inner div.img1 {
+  background-image: url(/goods/01.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.gallery .inner div.img2 {
+  background-image: url(/goods/02.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.gallery .inner div.img3 {
+  background-image: url(/goods/03.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.gallery .inner div.img4 {
+  background-image: url(/goods/04.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.gallery .inner div.img5 {
+  background-image: url(/goods/05.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.gallery .inner div.img6 {
+  background-image: url(/goods/06.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.gallery .inner > div p {
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+}
+
+.gallery .btns {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+}
+
+.gallery .btns label {
+  font-size: 30px;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+.gallery .btns label.next-1 { display: inline-block; }
+
+#next-1:checked ~ .inner {left: 264px;}
+#next-2:checked ~ .inner {left: 0;}
+#next-3:checked ~ .inner {left: -264px;}
+#prev-1:checked ~ .inner {left: 264px;}
+#prev-2:checked ~ .inner {left: 0;}
+#prev-3:checked ~ .inner {left: 264px;}
+#prev-4:checked ~ .inner {left: 528px;}
+
+#next-1:checked ~ .btns .next-2 { display: inline-block; }
+#next-1:checked ~ .btns .next-1 { display: none; }
+#next-1:checked ~ .btns .next-3 { display: none; }
+#next-1:checked ~ .btns .prev-1 { display: none; }
+#next-1:checked ~ .btns .prev-2 { display: none; }
+#next-1:checked ~ .btns .prev-3 { display: none; }
+#next-1:checked ~ .btns .prev-4 { display: none; }
+
+#next-2:checked ~ .btns .next-1 { display: none; }
+#next-2:checked ~ .btns .next-2 { display: none; }
+#next-2:checked ~ .btns .next-3 { display: inline-block; }
+#next-2:checked ~ .btns .prev-1 { display: inline-block; }
+#next-2:checked ~ .btns .prev-2 { display: none; }
+#next-2:checked ~ .btns .prev-3 { display: none; }
+#next-2:checked ~ .btns .prev-4 { display: none; }
+
+#next-3:checked ~ .btns .next-2 { display: none; }
+#next-3:checked ~ .btns .next-1 { display: none; }
+#next-3:checked ~ .btns .next-3 { display: none; }
+#next-3:checked ~ .btns .prev-1 { display: none; }
+#next-3:checked ~ .btns .prev-2 { display: inline-block; }
+#next-3:checked ~ .btns .prev-3 { display: none; }
+#next-3:checked ~ .btns .prev-4 { display: none; }
+
+#prev-1:checked ~ .btns .next-1 { display: none; }
+#prev-1:checked ~ .btns .next-2 { display: none; }
+#prev-1:checked ~ .btns .next-3 { display: inline-block; }
+#prev-1:checked ~ .btns .prev-1 { display: none; }
+#prev-1:checked ~ .btns .prev-2 { display: inline-block; }
+#prev-1:checked ~ .btns .prev-3 { display: none; }
+#prev-1:checked ~ .btns .prev-4 { display: none; }
+
+#prev-2:checked ~ .btns .next-1 { display: inline-block; }
+#prev-2:checked ~ .btns .next-2 { display: none; }
+#prev-2:checked ~ .btns .next-3 { display: none; }
+#prev-2:checked ~ .btns .prev-1 { display: none; }
+#prev-2:checked ~ .btns .prev-2 { display: none; }
+#prev-2:checked ~ .btns .prev-3 { display: inline-block; }
+#prev-2:checked ~ .btns .prev-4 { display: none; }
+
+#prev-3:checked ~ .btns .next-1 { display: none; }
+#prev-3:checked ~ .btns .next-2 { display: inline-block; }
+#prev-3:checked ~ .btns .next-3 { display: none; }
+#prev-3:checked ~ .btns .prev-1 { display: none; }
+#prev-3:checked ~ .btns .prev-2 { display: none; }
+#prev-3:checked ~ .btns .prev-3 { display: none; }
+#prev-3:checked ~ .btns .prev-4 { display: inline-block; }
+
+#prev-4:checked ~ .btns .next-1 { display: inline-block; }
+#prev-4:checked ~ .btns .next-2 { display: none; }
+#prev-4:checked ~ .btns .next-3 { display: none; }
+#prev-4:checked ~ .btns .prev-1 { display: none; }
+#prev-4:checked ~ .btns .prev-2 { display: none; }
+#prev-4:checked ~ .btns .prev-3 { display: none; }
+#prev-4:checked ~ .btns .prev-4 { display: none; }
+
+.gallery .inner .img {
+  position: relative;;
+}
+
+.gallery .inner .img:hover .content{
+  opacity: 1;
+}
+
+.gallery .inner .img .content {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+}
+.gallery .inner .img .content span {
+  display: block;
+  width: 150px;
+  padding: 10px 0;
+  background-color: rgba(0,0,0,0.5);
+  margin: 0 auto;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.gallery .inner .img .content a {
+  display: block;
+  width: 100px;
+  padding: 10px 0;
+  background-color: #a77070; /* 배경색 */
+  margin: 20px auto 0; /* 상단 마진을 제외한 중앙 정렬 */
+  color: #fff; /* 텍스트 색상 */
+  font-size: 20px; /* 폰트 크기 */
+  font-weight: 500; /* 폰트 두께 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  text-decoration: none; /* 텍스트 밑줄 제거 */
+  border-radius: 5px; /* 버튼 모서리 둥글게 */
+  transition: background-color 0.3s ease; /* 호버 애니메이션 효과 */
+}
+
+.gallery .inner .img .content a:hover {
+  background-color: #8b5a5a; /* 호버 시 배경색 변경 */
+}
+
+/* goods 영역 */
+.goods .line {
+  width: 100%;    
+  height: 70px;
+  background-color: #f48221;
+}
+
+.goods .title {
+  font-size: 100px;
+  font-weight: 800;
+}
+
+.goods .goods-itmes {
+  width: 97%;
+  margin: 0 auto;
+  display: flex;
+
+}
+
+.goods .goods-itmes .item {
+  flex: auto;
+  background-size: 100% 100%;
+  height: 300px;
+  margin: 5px;
+  border: 1px solid #575757;
+}
+
+.goods .goods-itmes .item-1 {
+  background-image: url(../images/01.jpg);
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+.goods .goods-itmes .item-2 {
+  background-image: url('goods/02.jpg');
+}
+.goods .goods-itmes .item-3 {
+  background-image: url(../images/goods3.jpg);
+}
+.goods .goods-itmes .item-4 {
+  background-image: url(../images/goods4.jpg);
+}
+
+.goods .goods-itmes .item-1 > div:nth-child(1), 
+.goods .goods-itmes .item-1 > div:nth-child(9) {cursor: nwse-resize;}
+.goods .goods-itmes .item-1 > div:nth-child(2),
+.goods .goods-itmes .item-1 > div:nth-child(8) {cursor: ns-resize;}
+.goods .goods-itmes .item-1 > div:nth-child(3),
+.goods .goods-itmes .item-1 > div:nth-child(7) {cursor: ne-resize;}
+.goods .goods-itmes .item-1 > div:nth-child(4),
+.goods .goods-itmes .item-1 > div:nth-child(6) {cursor: ew-resize;}
+.goods .goods-itmes .item-1 > div:nth-child(5) {cursor: all-scroll;}
+
+
+.goods .goods-itmes .item-1:hover {background-size: 200%;}
+.goods .goods-itmes .item-1:has(div:nth-child(1):hover) {background-position: top left;}
+.goods .goods-itmes .item-1:has(div:nth-child(2):hover) {background-position: top;}
+.goods .goods-itmes .item-1:has(div:nth-child(3):hover) {background-position: top right;}
+.goods .goods-itmes .item-1:has(div:nth-child(4):hover) {background-position: center left;}
+.goods .goods-itmes .item-1:has(div:nth-child(5):hover) {background-position: center;}
+.goods .goods-itmes .item-1:has(div:nth-child(6):hover) {background-position: center right;}
+.goods .goods-itmes .item-1:has(div:nth-child(7):hover) {background-position: bottom left;}
+.goods .goods-itmes .item-1:has(div:nth-child(8):hover) {background-position: bottom ;}
+.goods .goods-itmes .item-1:has(div:nth-child(9):hover) {background-position: bottom right;}
+
+/* 푸터 */
+footer {
+  height: 300px;
+  background-color: #333333;
+  margin-top: 50px;
+}
+
+footer > div {
+  padding: 60px 20px 0 30px;
+  color: white;
+  line-height: 180%;
+  font-size: 20px;
+}

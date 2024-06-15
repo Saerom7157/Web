@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/library/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>   
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: white;" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="public/images/logo.gif" width="60px" height="50px">
+            </a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a style="color: rgb(0, 0, 0);" class="nav-link" href="sub01.html">InforMation</a></li>
+                <li class="nav-item"><a style="color: rgb(0, 0, 0);" class="nav-link" href="sub01.html">StatIstics</a></li>
+                <li class="nav-item"><a style="color: rgb(0, 0, 0);" class="nav-link" href="sub01.html">ReserVation</a></li>
+                <li class="nav-item"><a style="color: rgb(0, 0, 0);" class="nav-link" href="sub01.html">Goods</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a style="color: rgb(0, 0, 0);" class="nav-link" href="#">로그인</a></li>
+                <li class="nav-item"><a style="color: rgb(0, 0, 0);" class="nav-link" href="#">회원가입</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="slider">
+            <div class="slide" style="background-image: url('./public/images/1x/s1.png');"></div>
+            <div class="slide" style="background-image: url('./public/images/1x/s2.png');"></div>
+            <div class="slide" style="background-image: url('./public/images/1x/s3.png');"></div>
+            <div class="slide" style="background-image: url('./public/images/1x/s4.png');"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <section class="information">
+            <div class="info">
+                <h1>Skills baseball park</h1>
+                <div class="text">
+                    <p>Skills baseball park는 시민들의 복리증진을 위하여 설치되었으며, 시민들의 건강 및 복지향상과 시민들에게 편리한 시설물 이용을 위한 야구장입니다.</p>
+                    <p>야구를 사랑하며 즐기는 생활체육인들이 모이는 곳</p>
+                    <p>다양한 즐거움과 감동을 선사하는 곳</p>
+                    <a href="./sub01.html">Skills baseball park</a>
+                </div>
+            </div>
+        </section>
+        <section class="game">
+            <div class="today">
+                <h1 class="title">금일경기현황</h1>
+                <h2 class="date"><span>2024-04-02</span></h2>
+                <div class="teams">
+                    <div class="team team-w">
+                        <img src="./public/images/1x/w.png" alt="team web">
+                        <p>Team Web</p>
+                    </div>
+                    <div class="score">
+                        <h2>5 : 4</h2>
+                        <button>LIVE</button>
+                    </div>
+                    <div class="team team-d">
+                        <img src="./public/images/1x/d.png" alt="team web">
+                        <p>Team Desing</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--달력-->
+            <div class="calendar" id="calendar">
+                <div class="calendar-title">
+                    <div class="y"><span>2024</span></div>
+                    <div class="m">4</div>
+                    <div class="m-eng"><span>APR</span></div>
+                </div>
+                <ul class="weekdays">
+                    <li>윌</li>
+                    <li>월</li>
+                    <li>화</li>
+                    <li>수</li>
+                    <li>목</li>
+                    <li>금</li>
+                    <li>토</li>
+                </ul>
+                <ul class="dates">
+                    <li class="empty"></li>
+                    <li><span>1</span></li>
+                    <li class="active"><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li><span>5</span></li>
+                    <li><span>6</span></li>
+                </ul>
+                <ul class="dates">
+                    <li><span>7</span></li>
+                    <li><span>8</span></li>
+                    <li><span>9</span></li>
+                    <li><span>10</span></li>
+                    <li><span>11</span></li>
+                    <li><span>12</span></li>
+                    <li><span>13</span></li>
+                </ul>
+                <ul class="dates">
+                    <li><span>14</span></li>
+                    <li><span>15</span></li>
+                    <li><span>16</span></li>
+                    <li><span>17</span></li>
+                    <li><span>18</span></li>
+                    <li><span>19</span></li>
+                    <li><a href="#modal" class="date-click"><span>20</span></a></li>
+                </ul>
+                <ul class="dates">
+                    <li><span>21</span></li>
+                    <li><span>22</span></li>
+                    <li><span>23</span></li>
+                    <li><span>24</span></li>
+                    <li><span>25</span></li>
+                    <li><span>26</span></li>
+                    <li><span>27</span></li>
+                </ul>
+                <ul class="dates">
+                    <li><span>28</span></li>
+                    <li><span>29</span></li>
+                    <li><span>30</span></li>
+                    <li class="empty"></li>
+                    <li class="empty"></li>
+                    <li class="empty"></li>
+                    <li class="empty"></li>
+                </ul>
+            </div>    
+        </section>
+        <!-- 달력 모달창 -->
+        <div id="modal" class="modal">
+            <a href="#calendar" class="close">&times;</a>
+            <div style="text-align: center; margin-top: 50px;">
+                <img src="/public/images/픽토그래픽.jpg" width="200px" height="150px">
+                <p>아직 게임이 없습니다.</p>
+            </div>
+        </div>
+
+
+        <section class="ranking">
+            <div class="lea">
+                <input type="radio" name="lea" id="lea1">
+                <input type="radio" name="lea" id="lea2">
+                <input type="radio" name="lea" id="lea3">
+
+                <input type="radio" name="base" id="base1">
+                <input type="radio" name="base" id="base2">
+            </div>
+            <div class="lea-top">RNKING</div>
+            <div class="lea-btns">
+                <label for="lea1" class="lea1">나이트리그</label>
+                <label for="lea2" class="lea2">주말리그</label>
+                <label for="lea3" class="lea3">새벽리그</label>
+            </div>
+            <div class="rank-box">
+                <div class="base">
+                    <label for="base1" class="base1">투수</label>
+                    <label for="base2" class="base2">타자</label>
+                </div>
+                <div class="ranks">
+                    <div class="rank night-pitcher">
+                        <p>나이트리그 - 투수순위</p>
+                        <ul>
+                            <li><span>1. </span>나일투</li>
+                            <li><span>2. </span>나이투</li>          
+                            <li><span>3. </span>나삼투</li>
+                            <li><span>4. </span>나사투</li>
+                            <li><span>5. </span>나오투</li>
+                            <li><span>6. </span>나육투</li>
+                            <li><span>7. </span>나칠투</li>
+                        </p>
+                    </div>
+                    <div class="rank night-hitter">
+                        <p>나이트리그 - 타자순위</p>
+                        <ul>
+                            <li><span>1. </span>나일타</li>
+                            <li><span>2. </span>나이타</li>
+                            <li><span>3. </span>나삼타</li>
+                            <li><span>4. </span>나사타</li>
+                            <li><span>5. </span>나오타</li>
+                            <li><span>6. </span>나육타</li>
+                            <li><span>7. </span>나칠타</li>
+                        </ul>
+                    </div>
+                    <div class="rank weekend-pitcher">
+                        <p>주말리그 - 투수순위</p>
+                        <ul>
+                            <li><span>1. </span>주일투</li>
+                            <li><span>2. </span>주이투</li>
+                            <li><span>3. </span>주삼투</li>
+                            <li><span>4. </span>주사투</li>
+                            <li><span>5. </span>주오투</li>
+                            <li><span>6. </span>주육투</li>
+                            <li><span>7. </span>주칠투</li>
+                        </ul>
+                    </div>
+                    <div class="rank weekend-hitter">
+                        <p>주말리그 - 타자순위</p>
+                        <ul>
+                            <li><span>1. </span>주일타</li>
+                            <li><span>2. </span>주이타</li>
+                            <li><span>3. </span>주삼타</li>
+                            <li><span>4. </span>주사타</li>
+                            <li><span>5. </span>주오타</li>
+                            <li><span>6. </span>주육타</li>
+                            <li><span>7. </span>주칠타</li>
+                        </ul>
+                    </div>
+                    <div class="rank morning-pitcher">
+                        <p>새벽리그 - 투수순위</p>
+                        <ul>
+                            <li><span>1. </span>새일투</li>
+                            <li><span>2. </span>새이투</li>
+                            <li><span>3. </span>새삼투</li>
+                            <li><span>4. </span>새사투</li>
+                            <li><span>5. </span>새오투</li>
+                            <li><span>6. </span>새육투</li>
+                            <li><span>7. </span>새칠투</li>
+                        </ul>
+                    </div>
+                    <div class="rank morning-hitter">
+                        <p>새벽리그 - 타자순위</p>
+                        <ul>
+                            <li><span>1. </span>새일타</li>
+                            <li><span>2. </span>새이타</li>
+                            <li><span>3. </span>새삼타</li>
+                            <li><span>4. </span>새사타</li>
+                            <li><span>5. </span>새오타</li>
+                            <li><span>6. </span>새육타</li>
+                            <li><span>7. </span>새칠타</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="top5">
+                <div class="top top1">
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
