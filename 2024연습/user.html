@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Reservation</title>
+    <link rel="stylesheet" href="public/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Member Reservation</h2>
+                <form id="reservationForm" action="book.php" method="POST">
+                    <div class="mb-3">
+                        <label for="league" class="form-label">Select League:</label>
+                        <select class="form-select" id="league" name="league">
+                            <option value="night">Night League</option>
+                            <option value="weekend">Weekend League</option>
+                            <option value="dawn">Dawn League</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Select Date:</label>
+                        <input type="date" class="form-control" id="date" name="date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="time" class="form-label">Select Time:</label>
+                        <select class="form-select" id="time" name="time">
+                            <option value="19:00">19:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="15:00">15:00</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="people" class="form-label">Minimum People:</label>
+                        <input type="number" class="form-control" id="people" name="people" min="20">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Make Reservation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
