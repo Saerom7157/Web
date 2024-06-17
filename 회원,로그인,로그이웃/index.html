@@ -1,28 +1,105 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>회원가입 및 로그인</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn, #btn1 {
+            box-shadow: 3px 5px 5px rgb(187, 187, 187);
+            opacity: 1;
+            transition-duration: 0.3s;
+        }
+        #btn:active, #btn1:active {
+            box-shadow: 3px 5px 5px rgba(187, 187, 187, 0.397);
+        }
+        a.joinBtn:checked{
+            display: block;
+        }
+
+        .modal {
+            display: none;
+        }
+        #join-none1:checked ~ #join-modal{
+            display: block;
+        }
+        #join-none2:checked ~ #join-modal{
+            display: none;
+        }
+        #login-none1:checked ~ #join-modal{
+            display: block;
+        }
+        #login-none2:checked ~ #join-modal{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- required 이건 경고메세지 뛰우는것 (필드안에 text가 없을때) -->
-     
-    <h2>회원가입</h2>
-    <form action="register_login.php" method="post">
-        Username: <input type="text" name="username" required><br>
-        Email: <input type="email" name="email" required><br>
-        Password: <input type="password" name="password" required><br>
-        <button id="btn2" type="submit" name="action" value="회원가입">회원가입</button>
-    </form>
+<div id="modal-overlay" class="modal-overlay"></div>
 
-    <h2>로그인</h2>
-    <form action="register_login.php" method="post">
-        Username: <input type="text" name="username" required><br>
-        Password: <input type="password" name="password" required><br>
-        <button id="btn1" type="submit" name="action" value="로그인">로그인</button>
-    </form> 
-    
-    
+<label for="join-none1">회원가입</label>
+
+<input type="radio" name="join-none" id="join-none1">
+
+
+
+<div id="join-modal" class="modal">
+    <input type="radio" name="join-none" id="join-none2">
+    <label for="join-none2">X</label>
+    <h1>회원가입</h1>
+    <form id="join-form" action="join-login.php" method="post">
+        Username <input type="text" name="username" id="join-username" required> <br>
+        Email <input type="email" name="email" required> <br>
+        Password <input type="password" name="password" id="signup-password" required>
+        <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span> <br>
+        <button type="button" id="usernameCheck">중복 확인</button>
+        <button type="submit" name="action" value="회원가입" id="registerButton" disabled>회원가입</button>
+    </form>
+</div>
+
+<button type="button" id="btn1">로그인버튼</button>
+<a href="login-modal">로그인버튼</a>
+<div id="login-modal" class="modal">
+    <span class="close-btn" onclick="closeModal('login-modal')">X</span>
+    <h1>로그인</h1>
+    <form action="join-login.php" method="post">
+        Username <input type="text" name="username" required> <br>
+        Password <input type="password" name="password" id="login-password" required>
+        <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span> <br>
+        <button type="submit" name="action" value="로그인">로그인</button>
+    </form>
+</div>
+
+<script>
+    function togglePassword(id) {
+        const passwordField = document.getElementById(id);
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+
+        const icon = passwordField.nextElementSibling;
+        icon.textContent = type === 'password' ? '👁️' : '🙈';
+    }
+
+    document.getElementById('usernameCheck').addEventListener('click', function () {
+        const username = document.getElementById('join-username').value;
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'check-username.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.responseText === 'available') {
+                    alert('사용 가능한 사용자 이름입니다.');
+                    document.getElementById('registerButton').disabled = false;
+                } else {
+                    alert('이미 존재하는 사용자 이름입니다.');
+                    document.getElementById('registerButton').disabled = true;
+                }
+            }
+        };
+        xhr.send('username=' + encodeURIComponent(username));
+    });
+</script>
+
 </body>
 </html>
