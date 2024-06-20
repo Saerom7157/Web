@@ -28,6 +28,6 @@ try {
         }
     }
 } catch (PDOException $e) {
-    die("error: " . $e->getMessage());
+    die("Error: " . $e->getMessage());
 }
 ?>

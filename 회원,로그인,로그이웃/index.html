@@ -18,13 +18,15 @@
         }
 
         .modal {
-            display: none;
+            position: absolute;
+            visibility: hidden;
+            transition: opacity 0.3s;
         }
         #join-none1:checked ~ #join-modal{
-            display: block;
+            visibility: visible;
         }
         #join-none2:checked ~ #join-modal{
-            display: none;
+            opacity: 0;
         }
         #login-none1:checked ~ #join-modal{
             display: block;
@@ -73,11 +75,11 @@
 
 <script>
     function togglePassword(id) {
-        const passwordField = document.getElementById(id);
-        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordField.setAttribute('type', type);
+        const passFlid = document.getElementById(id);
+        const type = passFlid.getAttribute('type') === 'password' ? 'type' : 'password';
+        passFlid.setAttribute('type', type);
 
-        const icon = passwordField.nextElementSibling;
+        const icon = passFlid.nextElementSibling;
         icon.textContent = type === 'password' ? '👁️' : '🙈';
     }
 
