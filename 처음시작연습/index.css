@@ -1,0 +1,257 @@
+.Header{
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    background-color:#867f7f54;
+    display: flex;
+    border: 0.5px solid rgb(157, 152, 152);
+}
+
+.Header div ul{
+    list-style: none;
+    display: flex;
+}
+
+.Header_logo{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+
+.Header_mainMenu{
+    height: 70px;
+    width: 1470px;
+    display: flex;
+    justify-content: center;
+}
+
+.Header_mainMenu ul{
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.Header_mainMenu ul li{
+    margin-left: 100px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    margin-top: 40px;
+    padding: 5px;
+}
+
+.Header_mainMenu ul li:hover{
+    background-color: rgba(255, 255, 255, 0.645);
+    border-radius: 4px;
+
+}
+
+
+.Header_subMenu{
+    height: 70px;
+    width: 400px;
+    display: flex;
+    justify-content: end;
+}
+
+
+.Header_subMenu ul{
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.Header_subMenu ul li{
+    margin-right: 50px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    margin-top: 40px;
+    padding: 5px;
+}
+
+.Header_subMenu ul li:hover{
+    background-color: rgba(255, 255, 255, 0.645);
+    border-radius: 10px;    
+}
+
+.Contents_margin{ 
+    background-color: rgb(255, 255, 255);
+    height: 70px;
+}
+
+
+.Contents{
+    width: 100%;
+}
+
+/* 배경 설정 */
+.Contents_slider {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/slider.jpg");
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬을 유지 */
+    align-items: center; /* 수직 중앙 정렬을 유지 */
+    flex-direction: column; /* 자식 요소들을 수직으로 쌓음 */
+}
+
+.Contents_slider_text1{
+    font-size: 17px;
+    color: white;
+    font-family: 'Stylish', serif;
+}
+.Contents_slider_text2 {
+    margin-top: 10px;
+    font-size: 60px;
+    color: white;
+    font-family: 'Stylish', serif;
+}
+
+/* 객실 안내 */
+.Contents_intro{
+    display: flex;
+    height: 700px;
+}
+
+.Contents_intro_holder{
+    display: flex;
+    height: 100%;
+    width: 1200px;
+    justify-content: center;
+    background-color: white;
+}
+
+
+/* 예약안내 */
+.Contents_guide{
+    background-color: rgba(199, 199, 199, 0.267);
+    background-image: url("img/Contents_guide.jpg");
+    display: flex;
+    height: 700px;
+    
+}
+.Contents_guide_holder{
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+.Contents_guide_holder h1{
+    font-size: 60px;
+    justify-content: center;
+    display: flex;
+    margin-top: 15%;
+    font-family: 'Song Myung', serif;
+}
+.Contents_guide_text2{
+    margin-top: 10px;
+    font-family: 'Diphylleia', serif;
+}
+/* 박스 */
+.Contents_guide_text_hr{
+    margin-top: 15%;
+    margin-left: 35%;
+    padding: 10px;
+    width: 30%;
+    border: 2px solid rgb(255, 255, 255);
+}
+.Contents_hr_text1{
+    display: flex;
+    justify-content: center;
+}
+.Contents_hr_text2{
+    display: flex;
+    justify-content: center;
+}
+.Contents_hr_text3{
+    display: flex;
+    justify-content: center;
+}
+.Contents_hr_text4{
+    display: flex;
+    justify-content: center;
+}
+.Contents_guide_div{
+    margin-top: 5px;
+    display:grid;
+    font-size: 15px;
+    justify-content: center;
+}
+
+
+/* 오시는길 */
+.Contents_address{
+    display: flex;
+    height: 700px;
+    background-color: rgb(255, 255, 255);
+}
+
+.Contents_address_box{
+    width: 100%;
+    height: 100%;
+}
+.Contents_address_text1{
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: 'Song Myung', serif;
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+}
+
+.Contents_address_text2{
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'Song Myung', serif;
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+}
+
+.Contents_address_holder{
+    width: 100%;
+    height: 85%;
+}
+.Contents_address_holder img{
+    margin-top: 20px;
+    margin-left: 20%;
+    width: 60%;
+    height: 90%;
+}
+
+/* 주소.. */
+.Footer{
+    padding-top: 2%;
+    width: 100%;
+    height: 130px;
+    background-color: rgb(0, 0, 0);
+}
+
+.Footer div{
+    display: flex;
+    margin-left: 30px;
+}
+
+.Footer_text1{
+    color: white;
+    display: flex;
+    font-size: 25px;
+    font-family: 'Stylish', serif;
+}
+
+.Footer_text2{
+    color: white;
+    margin: 5px;
+    display:grid;
+    font-size: 13px;
+}
+
+.Footer_hr{
+    width: 90%;
+    height: 1px;
+    background-color: white;
+}
+
