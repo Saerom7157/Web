@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>로그인</h2>
+        <form action="auth.php" method="post">
+            <div class="form-group">
+                <label for="em">이메일:</label>
+                <input type="email" class="form-control" id="em" name="em" required>
+            </div>
+            <div class="form-group">
+                <label for="pw">비번:</label>
+                <input type="password" class="form-control" id="pw" name="pw" required>
+            </div>
+            <button type="submit" class="btn btn-primary">로그인</button>
+        </form>
+    </div>
+</body>
+</html>
