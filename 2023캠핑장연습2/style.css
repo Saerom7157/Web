@@ -1,0 +1,173 @@
+.Header{
+    width: 100%;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.373);
+    position: fixed;
+    display: flex;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.377);
+}
+.Header_logo{
+    margin: 10px;
+}
+
+.Header_text1{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.Header_text1 li{
+    margin-left: 150px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.Header_text1 li:hover{
+    color: white;
+    background-color: black;
+}
+
+.Header_text2{
+    width: 30%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.Header_text2 li{
+    margin-right: 70px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Header_text2 li:hover{
+    color: white;
+    background-color: black;
+}
+
+.Contents{
+    width: 100%;
+    height: 100vb;
+    background-image: url("img/배경2.gif");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.Contents_holder{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex-direction: column;
+}
+.Contents_holder h1{
+    font-size: 60px;
+}
+.Contents_holder h2{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.공간{
+    width: 100%;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+}
+
+.Contents_guide1{
+    width: 100%;
+    height: 800px;
+    background-image: url("img/캠핑장소개1.gif");
+    background-size: cover;
+    background-position: center;
+}
+.Contents_guide2{
+    width: 100%;
+    height: 900px;
+    background-image: url("img/예약안내.gif");
+    background-size: cover;
+    background-position: center;
+}
+.Contents_guide3{
+    width: 100%;
+    height: 900px;
+    background-image: url("img/오시는길.gif");
+    background-size: cover;
+    background-position: center;
+}
+
+.Footer{
+    width: 100%;
+    height: 200px;
+    background-color: rgb(181, 198, 26);
+    background-image: url("img/Footerimg.gif");
+    background-size: cover;
+    background-position: center;
+    font-display:unset;
+    display: flex;
+}
+
+.Footer_h1 {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 30px;
+    font-weight: bold; /* 글씨를 굵게 */
+    font-size: 20px; /* 글자 크기를 24px로 설정 */
+}
+
+.Footer h1{
+    margin-left: 20px;
+}   
+
+.Footer h1:hover{
+    color: rgb(89, 89, 190);
+}
+
+.Footer p{
+    margin-left: 50px;
+}
+
+
+.Reservation{
+    width: 100%;
+    height: 100vh;
+    background-image: url("img/예약현황표.gif");
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width:500px) {
+    .Header{
+        height: 50px;
+    }
+    .Header_text1 li{
+        font-size: 13px;
+        margin-left: 3px;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .Header_text2{
+        width: 40%;
+    }
+    
+    .Header_text2 li{
+        font-size: 13px;
+        margin-right: 12px;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .Contents h1{
+        font-size: 50px;
+    }
+}
