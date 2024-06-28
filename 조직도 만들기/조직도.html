@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizational Chart Design</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+      }
+      #org_chart_sec {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          background: url('./img/organization_chart_background.png') no-repeat center center;
+          background-size: cover;
+          margin: auto;
+          width: 1400px;
+          height: 600px; /* Full height of the viewport */
+          background-image: url(/자산\ 3.png);
+          background-position: center;
+          background-size: contain;
+      }
+      .org_chart_sec_box {
+          position: absolute;
+          border: 1px solid black;
+          padding: 10px;
+          width: 80px; /* Increased width for better visibility */
+          background-color: white;
+          transition: background-color 0.3s ease;
+          cursor: pointer;
+          text-align: center;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds shadow for better depth */
+          border-radius: 5px; /* Rounded corners */
+      }
+
+      .org_chart_sec_box:hover ~ .org_chart_sec_box {
+        background-color:thistle;
+      }
+      .org_chart_sec_box:hover ~ div .org_chart_sec_box {
+        background-color:thistle;
+      }
+      .org_chart_sec_box:hover {
+        background-color:thistle;
+      }
+      /* Positioning each box with specific IDs */
+      #org_chart_sec_box1 { top: 10.3%; left: 50%; transform: translate(-50%, -50%);}
+
+      #org_chart_sec_box2 { top: 25%; left: 50%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box3 { top: 45%; left: 50%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box4 { top: 55%; left: 45%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box5 { top: 55%; left: 55%; transform: translate(-50%, -50%); }
+
+      #org_chart_sec_box6 { top: 25%; left: 25%; transform: translate(-50%, -50%); }
+
+      #org_chart_sec_box7 { top: 40%; left: 20%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box8 { top: 50%; left: 20%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box9 { top: 60%; left: 20%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box10 { top: 70%; left: 20%; transform: translate(-50%, -50%); }
+
+      #org_chart_sec_box11 { top: 40%; left: 30%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box12 { top: 50%; left: 30%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box13 { top: 60%; left: 30%; transform: translate(-50%, -50%); }
+      
+      #org_chart_sec_box14 { top: 25%; left: 75%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box15 { top: 40%; left: 70%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box16 { top: 40%; left: 80%; transform: translate(-50%, -50%); }
+    </style>
+</head>
+<body>
+    <section id="org_chart_sec">
+        <div class="org_chart_sec_box" id="org_chart_sec_box1">경주시민</div>
+        <div class="bottom-box"></div>
+        <div>
+          <div class="org_chart_sec_box" id="org_chart_sec_box2">전통문화부</div>
+          <div class="org_chart_sec_box" id="org_chart_sec_box3">서원</div>
+          <div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box4">옥산서원</div>
+          </div>
+          <div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box5">운곡서원</div>
+          </div>
+        </div>
+        <div>
+          <div class="org_chart_sec_box" id="org_chart_sec_box6">문화사업팀</div>
+          <div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box7">유네스코부</div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box8">양동마을</div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box9">불국사</div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box10">대릉원</div>
+          </div>
+          <div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box11">경주관광부</div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box12">북부권</div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box13">남부권</div>
+          </div>
+        </div>
+        <div>
+          <div class="org_chart_sec_box" id="org_chart_sec_box14">공연사업팀</div>
+          <div class="org_chart_sec_box" id="org_chart_sec_box15">국제공연부</div>
+          <div class="org_chart_sec_box" id="org_chart_sec_box16">국내공연부</div>
+        </div>
+        
+    </section>
+</body>
+</html>
