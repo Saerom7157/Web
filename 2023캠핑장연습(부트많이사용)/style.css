@@ -1,0 +1,250 @@
+.container, .container-fluid{
+  max-width: 1320px;
+}
+
+
+
+.navbar-nav, .nav-link{
+  color: rgb(0, 0, 0);
+}
+
+.navbar-nav, .nav-link:hover{
+  color: rgb(194, 193, 193);
+}
+
+#Contens2{
+    width: 100%;
+    height: 1000px;
+}
+
+div.boxTest{
+  position: absolute;
+  left: 100px;
+  width: 300px;
+  height: 300px;
+  margin-left: -50px;
+  background-color: black;
+  color: #fff;
+
+  animation-name: box;  /* 애니메이션 이름 */
+  animation-duration: 3s;/* 애니메이션 지속시간  */
+  animation-delay: 0; /* 애니메이션 지속시간 */
+  animation-iteration-count: infinite; /* 애니메이션 반복회수(소수점가능, 무효) */
+  animation-direction: alternate;  /* 애니메이션 반복반향 */
+  /* 
+  normal : 한방향 반복
+  alternate : 양방향 반복
+  reverse : 역순 한방향 반복
+  alternate-reverse : 역순 양방향 반복
+  */
+
+  animation-play-state: running; /* 애니메이션 재생여부 */
+  animation-timing-function: ease; /* 애니메이션 재생여부 */
+  animation-fill-mode: forwards; /* 애니메이션 반복방향 */
+}
+
+@keyframes box{
+  0%{
+    left: 0px;
+  }
+  100%{
+    left: 84%;
+  }
+}
+
+
+
+
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vb;
+  }
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vb;
+  background-size: cover;
+  background-position: center;
+
+  animation: slider 8s infinite normal linear;
+}
+
+.slide:nth-child(1) {
+  /*background-image: url(img1.jpg);*/
+  animation-delay: 0;
+}
+.slide:nth-child(2) {
+  animation-delay: -2s;
+}
+.slide:nth-child(3) {
+  animation-delay: -4s;
+}
+.slide:nth-child(4) {
+  animation-delay: -6s;
+}
+
+@keyframes slider {
+  0% {
+    transform: translateX(0);
+  }
+
+  19% {
+    transform: translateX(0); /* 19% 동안 화면(0)에 보여줌 */
+  }
+  25% {
+    transform: translateX(-100%); /* 6% 동안 화면(0%) -> 화면왼쪽(-100)으로 이동  */
+    animation-timing-function: step-end; /*100% 는 순간이동 시킴*/
+  }
+  94% {
+    transform: translateX(100%); /* 화면오른쪽(100)으로 순간이동 */
+  }
+
+  100% {
+    transform: translateX(0); /* 6% 동안 화면왼쪽(100) -> 화면(0)으로 이동 */
+  }
+}
+
+/* 달력 css */
+.calendar-table td:hover {
+  background-color: yellow;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  width: 300px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.calendar-link {
+  color: black; /* Or any color that matches your calendar text color */
+  text-decoration: none; /* Removes the underline */
+}
+
+.calendar-link:hover {
+  text-decoration: underline; /* Optional: underline on hover for better UX */
+}
+
+
+
+/* 네비게이션 바 스타일 */
+#navCustom {
+  background-color: #004289;
+}
+
+#navCustom .navbar-brand,
+#navCustom .nav-link {
+  color: white;
+}
+
+#navCustom .nav-link:hover {
+  color: #f8f9fa;
+}
+
+#navCustom .btn-login,
+#navCustom .btn-register {
+  color: white;
+  border: 1px solid white;
+}
+
+#navCustom .btn-login:hover,
+#navCustom .btn-register:hover {
+  color: #004289;
+  background-color: white;
+}
+
+
+#introSection,
+#facilitySection,
+#rulesSection,
+#locationSection {
+  padding: 4rem 0;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  background: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#introSection {
+  margin-top: 100px; /* Increase spacing from the navbar */
+  padding: 4rem 0;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  background: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background-image: url('images/21.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center; /* Center-align the text for a more polished look */
+}
+
+#introHeading {
+  color: #004289;
+  margin-bottom: 1rem;
+  font-size: 2.5rem; /* Increase the font size for better visibility */
+}
+
+/* Improve paragraph styling for better readability */
+#introSection p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.5; /* Increase line height for better readability */
+}
+
+
+#facilitySection,
+#rulesSection,
+#locationSection {
+  background-color: #f7f7f7;
+}
+
+/* 섹션 제목 스타일 */
+#introHeading,
+#facilityHeading,
+#rulesHeading,
+#locationHeading {
+  color: #004289;
+  margin-bottom: 1rem;
+}
+
+/* 오시는 길 섹션 이미지 스타일 */
+#locationMap {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods Section</title>
+    <link rel="stylesheet" href="public/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <style>
+        .goods-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .goods-item {
+            width: calc(50% - 5px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .goods-item img {
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .goods-item:first-child:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Goods Section</h2>
+        <div class="goods-container">
+            <div class="goods-item" onmousemove="zoomImage(event, 'image1')">
+                <img id="image1" src="goods/06.jpg" alt="Goods Photo 1">
+            </div>
+            <div class="goods-item">
+                <img src="goods/07.jpg" alt="Goods Photo 2">
+            </div>
+            <div class="goods-item">
+                <img src="goods/08.jpg" alt="Goods Photo 3">
+            </div>
+            <div class="goods-item">
+                <img src="goods/09.jpg" alt="Goods Photo 4">
+            </div>
+        </div>
+    </div>
+
+    <script src="public/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
