@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Organizational Chart Design</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+      }
+      #org_chart_sec {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          background: url('./img/organization_chart_background.png') no-repeat center center;
+          background-size: cover;
+          width: 100%;
+          height: 600px; /* Full height of the viewport */
+          background-image: url('./images/1x/자산\ 3.png');
+          background-position: center;
+          background-size: cover;
+      }
+      .org_chart_sec_box {
+          position: absolute;
+          border: 2px solid black;
+          padding: 10px;
+          width: 100px; /* Increased width for better visibility */
+          background-color: white;
+          transition: background-color 0.3s ease;
+          cursor: pointer;
+          text-align: center;
+      }
+      .chart-title {
+          position: absolute;
+          text-align: center;
+          font-size: 40px; /* Large font size for the title */
+          width: 100%;
+          margin: 20px 0;
+          color: #000000; /* Dark grey color for better visibility */
+          margin-top: 250px;
+          font-weight: 600;
+      }
+
+
+      .org_chart_sec_box:hover ~ .org_chart_sec_box {
+        color: white;
+        font-weight: 600;
+        background-color: #F6931E;
+      }
+      .org_chart_sec_box:hover ~ div .org_chart_sec_box {
+        color: white;
+        font-weight: 600;
+        background-color: #F6931E;
+      }
+      .org_chart_sec_box:hover {
+        color: white;
+        font-weight: 600;
+        background-color: #FF6D01;
+      }
+      /* Positioning each box with specific IDs */
+      #org_chart_sec_box1 { top: 10.3%; left: 50%; transform: translate(-50%, -50%);}
+
+      #org_chart_sec_box2 { top: 25%; left: 50%; transform: translate(-50%, -50%); }
+
+      /* 서원 */
+      #org_chart_sec_box3 { top: 40%; left: 50%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box4 { top: 55%; left: 44%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box5 { top: 55%; left: 56%; transform: translate(-50%, -50%); }
+
+      /* 문화사업팀 */
+      #org_chart_sec_box6 { top: 25%; left: 23%; transform: translate(-50%, -50%); }
+
+      #org_chart_sec_box7 { top: 40%; left: 17%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box8 { top: 50%; left: 17%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box9 { top: 60%; left: 17%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box10 { top: 70%; left: 17%; transform: translate(-50%, -50%); }
+
+      #org_chart_sec_box11 { top: 40%; left: 28.5%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box12 { top: 50%; left: 28.5%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box13 { top: 60%; left: 28.5%; transform: translate(-50%, -50%); }
+      
+      #org_chart_sec_box14 { top: 25%; left: 77%; transform: translate(-50%, -50%); }
+
+      #org_chart_sec_box15 { top: 40%; left: 71%; transform: translate(-50%, -50%); }
+      #org_chart_sec_box16 { top: 40%; left: 83%; transform: translate(-50%, -50%); }
+    </style>
+</head>
+<body>
+  <header>
+    <div class="header_wrap">
+      <div class="logo_area">
+        <p><img src="./images/logo.svg"></p>
+      </div>
+      <nav class="menu_area">
+        <ul class="main_menu">
+          <li><a href="#">경주여행</a>
+            <ul class="sub_menu">
+              <li><a href="#">이벤트</a></li>
+              <li><a href="#">여행코스추천</a></li>
+              <li><a href="#">테마여행</a></li>
+              <li><a href="#">경주의 자연</a></li>
+            </ul>
+          </li>
+          <li><a href="#">문화여행</a>
+            <ul class="sub_menu">
+              <li><a href="#">이달의 축제행사</a></li>
+              <li><a href="#">정기 축제행사</a></li>
+              <li><a href="#">공연전시 정보</a></li>
+              <li><a href="#">해외공연 정보</a></li>
+            </ul>
+          </li>
+          <li><a href="#">안내</a>
+            <ul class="sub_menu">
+              <li><a href="sub2.html">조직도</a></li>
+              <li><a href="#">공지	사항</a></li>
+              <li><a href="#">홍보영상</a></li>
+              <li><a href="#">여행책자</a></li>
+            </ul>
+          </li>
+          <li><a href="#">나의여행</a>
+            <ul class="sub_menu">
+              <li><a href="#">투어택시예약</a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="login_area">
+        <div class="join">
+          <a href="#">회원가입</a>
+        </div>
+        <div class="login">
+          <a href="#">로그인</a>
+        </div>
+      </div>
+    </div>
+  </header>
+    <div class="container">
+      <h1 class="chart-title">경주 조직도</h1>
+        <section id="org_chart_sec" style="margin-top: 300px;">
+          <div class="org_chart_sec_box" id="org_chart_sec_box1">경주시민</div>
+          <div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box2">전통문화부</div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box3">서원</div>
+            <div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box4">옥산서원</div>
+            </div>
+            <div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box5">운곡서원</div>
+            </div>
+          </div>
+          <div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box6">문화사업팀</div>
+            <div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box7">유네스코부</div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box8">양동마을</div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box9">불국사</div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box10">대릉원</div>
+            </div>
+            <div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box11">경주관광부</div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box12">북부권</div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box13">남부권</div>
+            </div>
+          </div>
+          <div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box14">공연사업팀</div>
+            <div>
+              <div class="org_chart_sec_box" id="org_chart_sec_box15">국제공연부</div>
+            </div>
+            <div class="org_chart_sec_box" id="org_chart_sec_box16">국내공연부</div>
+        </div>
+      </section>
+    </div>
+    
+
+    <!-- 푸터 -->
+		<footer class="container">
+			<div class="footer1">
+				<div>경상북도 경주시 양정로 260 (동천동, 경주시청)</div>
+				<div>대표전화 : 054-779-8585</div>
+				<div>관광안내전화 1330 응급전화안내 1339</div>
+				<hr>
+				<div>@Copyright 2024 Gyeongju Tourguide. All rights reserved.</div>
+			</div>
+			<div class="footer2">
+				<a href="#" style="text-decoration:underline;">개인정보처리방침</a> <br>
+				<div>&nbsp;|&nbsp;</div>
+				<a href="#">저작권보호</a>
+				<div>&nbsp;|&nbsp;</div>
+				<a href="#">사이트오류신고</a>
+				<div class="footer-icon">
+					<div class="foot-icon1"></div>
+					<div class="foot-icon2"></div>
+					<div class="foot-icon3"></div>
+					<div class="foot-icon4"></div>
+				</div>
+			</div>
+		</footer>	
+    
+</body>
+</html>

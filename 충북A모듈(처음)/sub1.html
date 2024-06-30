@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>동해안 투어</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .container {
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 20px;
+    }
+    .tour-header {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .card {
+        border: 2px solid #c4c4c4;
+        margin: 15px;
+        flex: 0 1 calc(33% - 30px); /* 화면 크기에 따라 유동적으로 변하되, 한 줄에 3개씩 배치 */
+    }
+    .card img {
+        width: 100%; /* 이미지는 카드 너비에 맞춰서 전체 크기로 표시 */
+        height: auto;
+    }
+    .box{
+        padding-top: 100px;
+        border: 2px solid black;
+    }
+
+    input[type="radio"]{
+    display: none;
+    }
+    .link-btn{
+        border: 2px solid black;
+        background-color: #f6951ec9;
+        margin-top: 50px;
+        margin-bottom: 0.2px;
+    }
+    .link-btn>label{
+        margin-top: 10px;
+        margin-left: 8px;
+        padding: 10px 5px 10px 5px;
+        border: 2.5px solid rgb(0, 0, 0);
+        border-radius: 10px;
+        text-shadow: 0px 0px 10px #F6931E;
+        background-color: white;
+        font-weight: 600;
+        color: #000000;
+        transition: background-color 0.5s;
+    }
+    .link-btn>label:hover{
+        background-color: rgb(0, 0, 0);
+        border: 2.5px solid rgb(255, 255, 255);
+        color: #FF6D01;
+    }
+    #btn1:checked + label{
+        background-color: rgb(0, 0, 0);
+        border: 2.5px solid rgb(255, 255, 255);
+        color: #FF6D01;
+    }
+    #btn2:checked + label{
+        background-color: rgb(0, 0, 0);
+        border: 2.5px solid rgb(255, 255, 255);
+        color: #FF6D01;
+    }
+    #btn3:checked + label{
+        background-color: rgb(0, 0, 0);
+        border: 2.5px solid rgb(255, 255, 255);
+        color: #FF6D01;
+    }
+
+    #btn1:checked ~ #box1{ display: block; }
+    #btn2:checked ~ #box2{ display: block; }
+    #btn3:checked ~ #box3{ display: block; }
+
+    .box {
+        display: none;
+        background-color: white;
+    }
+
+    .card-btn1{
+        width: 250px; 
+        height: 300px; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        background-image: url('/여행코스/동해안투어/경주전통명주전시관.jpg');
+        background-position: center;
+        background-size: cover;
+        border-radius: 15px;
+    }
+</style>
+</head>
+<body>
+
+    
+<div class="container">
+    <div class="link-btn">
+        <input type="radio" name="btn" id="btn1" checked>
+        
+        <label for="btn1">동해안투어</label>
+        <input type="radio" name="btn" id="btn2">
+        <label for="btn2">세계유산투어</label>
+        <input type="radio" name="btn" id="btn3">
+        <label for="btn3">신라역사투어</label>
+
+
+
+
+        <div class="box" id="box1">
+            <div class="tour-header">[동해안투어]</div>
+            <div class="d-flex flex-wrap justify-content-around">
+                <div class="card">
+                    <img src="/여행코스/동해안투어/경주전통명주전시관.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">경주전통명주전시관</h5>
+                    <p class="card-text">1일차</p>
+                    <a href="#" class="btn btn-primary">방문하기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/동해안투어/감은사지.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">감은사지</h5>
+                    <p class="card-text">2일차</p>
+                    <a href="#" class="btn btn-primary">더 알아보기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/동해안투어/문무대왕릉.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">문무대왕릉</h5>
+                    <p class="card-text">3일차</p>
+                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/동해안투어/양남주상절리.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">양남주상절리</h5>
+                    <p class="card-text">4일차</p>
+                    <a href="#" class="btn btn-primary">보기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/동해안투어/굴골사.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">골굴사</h5>
+                    <p class="card-text">5일차</p>
+                    <a href="#" class="btn btn-primary">탐험하기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/동해안투어/괘릉.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">괘릉</h5>
+                    <p class="card-text">6일차</p>
+                    <a href="#" class="btn btn-primary">방문 사이트</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box" id="box2">
+            <div class="tour-header">[세계유산투어] 무열왕릉-대릉원-분황사-석굴암-불국사</div>
+            <div class="d-flex flex-wrap justify-content-around">
+                <div class="card">
+                    <img src="/여행코스/세계유산투어/대릉원.png" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">경주전통명주전시관</h5>
+                    <p class="card-text">한국 전통주의 역사를 체험하세요.</p>
+                    <a href="#" class="btn btn-primary">방문하기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/세계유산투어/무열왕릉.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">감은사지</h5>
+                    <p class="card-text">역사적 유물이 남아 있는 고대 사원터를 탐방하세요.</p>
+                    <a href="#" class="btn btn-primary">더 알아보기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/세계유산투어/분황사.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">문무대왕릉</h5>
+                    <p class="card-text">한국을 지킨 문무왕의 수중릉을 방문하세요.</p>
+                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/세계유산투어/불국사.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">양남주상절리</h5>
+                    <p class="card-text">해안선을 따라 이어진 장관의 주상절리를 감상하세요.</p>
+                    <a href="#" class="btn btn-primary">보기</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/여행코스/세계유산투어/석굴암.jpg" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">골굴사</h5>
+                    <p class="card-text">산속에 위치한 평화로운 불교 사원을 방문하세요.</p>
+                    <a href="#" class="btn btn-primary">탐험하기</a>
+                    </div>
+                </div>
+                <div class="card" style="visibility: hidden;"></div>
+            </div>
+        </div>
+
+        <div class="box" id="box3">
+            <div class="tour-header">[신라역사투어] 김유신장군묘-국립경주박물관-황룡사역사문화관-불국사-경주세계문화엑스포</div>
+            <div class="d-flex flex-wrap justify-content-around">
+            <div class="card">
+                <img src="/여행코스/신라역사투어/경주세계문화엑스포.jpg" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">경주전통명주전시관</h5>
+                <p class="card-text">한국 전통주의 역사를 체험하세요.</p>
+                <a href="#" class="btn btn-primary">방문하기</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/여행코스/신라역사투어/국립경주박물관.jpg" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">감은사지</h5>
+                <p class="card-text">역사적 유물이 남아 있는 고대 사원터를 탐방하세요.</p>
+                <a href="#" class="btn btn-primary">더 알아보기</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/여행코스/신라역사투어/김유신장군묘.jpg" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">문무대왕릉</h5>
+                <p class="card-text">한국을 지킨 문무왕의 수중릉을 방문하세요.</p>
+                <a href="#" class="btn btn-primary">자세히 보기</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/여행코스/신라역사투어/불국사.jpg" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">양남주상절리</h5>
+                <p class="card-text">해안선을 따라 이어진 장관의 주상절리를 감상하세요.</p>
+                <a href="#" class="btn btn-primary">보기</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/여행코스/신라역사투어/황룡사역사문화관.jpg" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">골굴사</h5>
+                <p class="card-text">산속에 위치한 평화로운 불교 사원을 방문하세요.</p>
+                <a href="#" class="btn btn-primary">탐험하기</a>
+                </div>
+            </div>
+            <div class="card" style="visibility: hidden;"></div>
+        </div>
+        </div>
+
+
+
+</div>
+</body>
+</html>
