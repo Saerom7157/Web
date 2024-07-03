@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="joinlogin.php" method="post">
+        <input type="text" name="username" id="username" required pattern="[a-zA-Z]{4,12}">
+        <input type="password" name="password" id="password" required pattern="[a-zA-Z0-9]{4,8}">
+        <select name="role" id="role">
+            <option value="1">일반</option>
+            <option value="2">기사</option>
+        </select>
+        <button type="submit" name="action" value="회원가입">회원가입</button>
+    </form>
+
+    <form action="joinlogin.php" method="post">
+        <input type="text" name="username" id="username" required pattern="[a-zA-Z]{4,12}">
+        <input type="password" name="password" id="password" required>
+        <button type="submit" name="action" value="로그인">로그인</button>
+    </form>
+
+</body>
+</html>
