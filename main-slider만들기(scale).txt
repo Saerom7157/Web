@@ -1,0 +1,29 @@
+.main-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #80ccff3b;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    animation: slideAnimation 12s infinite linear; /* 애니메이션을 부드럽게 만들기 위해 timing function을 linear로 설정 */
+}
+
+/*@keyframes slideAnimation {
+    0%, 10%{
+        transform: scale(1);
+    }
+    10%, 30% { opacity: 1; transform: scale(1.5); }
+    30%, 100% { opacity: 0;transform: scale(1.8);  }
+}*/
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 3s; } /* 각 슬라이드가 시작하는 시간을 조정 */
+.slide:nth-child(3) { animation-delay: 6s; }
+.slide:nth-child(4) { animation-delay: 9s; }
