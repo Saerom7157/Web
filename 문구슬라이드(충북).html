@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문구 슬라이드</title>
+    <style>
+        body {
+            display: flex; /* 플렉스 박스 레이아웃을 사용 */
+            flex-direction: column; /* 플렉스 항목을 세로로 배치 */
+            align-items: center; /* 플렉스 항목을 수평 가운데 정렬 */
+            justify-content: center; /* 플렉스 항목을 수직 가운데 정렬 */
+            height: 100vh; /* 뷰포트 높이를 100%로 설정 */
+            margin: 0; /* 기본 여백 제거 */
+            font-family: 'Malgun Gothic', 'Arial', sans-serif; /* 기본 글꼴 설정 */
+            background-color: #000; /* 배경색을 검정으로 설정 */
+        }
+        #slideContainer {
+            width: 50%; /* 너비를 뷰포트의 50%로 설정 */
+            overflow: hidden; /* 넘치는 내용 숨기기 */
+            border: 2px solid #fff; /* 흰색 테두리 설정 */
+            background-color: #000; /* 배경색을 검정으로 설정 */
+            color: #fff; /* 텍스트 색상을 흰색으로 설정 */
+            white-space: nowrap; /* 텍스트를 줄바꿈하지 않음 */
+        }
+        #slideCanvas {
+            display: inline-block; /* 인라인 블록 요소로 설정 */
+        }
+        .slide-animation {
+            animation: slide 10s linear infinite; /* 10초 동안 linear 애니메이션을 무한 반복 */
+        }
+        @keyframes slide {
+            0% { transform: translateX(0%); } /* 애니메이션 시작: 오른쪽에서 시작 */
+            50% { transform: translateX(-55%); } /* 애니메이션 중간: 왼쪽 끝까지 이동 */
+            100% { transform: translateX(0%); } /* 애니메이션 끝: 다시 오른쪽으로 이동 */
+        }
+        #fontSelector, #inputSection {
+            margin: 10px; /* 10px 여백 설정 */
+        }
+        .font-option {
+            margin-right: 10px; /* 오른쪽에 10px 여백 설정 */
+        }
+        label{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="fontSelector">
+        <label>폰트 선택:</label>
+        <label class="font-option"><input type="radio" name="font" value="궁서" checked> 궁서</label>
+        <label class="font-option"><input type="radio" name="font" value="돋움"> 돋움</label>
+        <label class="font-option"><input type="radio" name="font" value="바탕"> 바탕</label>
+        <label class="font-option"><input type="radio" name="font" value="맑은고딕"> 맑은 고딕</label>
+        <label class="font-option"><input type="radio" name="font" value="굴림"> 굴림</label>
+        <!-- 폰트 선택을 위한 라디오 버튼들 -->
+    </div>
+    <div id="inputSection">
+        <button id="eventButton">이벤트 도전</button> <!-- 이벤트 도전 버튼 -->
+    </div>
+    <div id="slideContainer">
+        <canvas id="slideCanvas"></canvas> <!-- 글자를 그릴 캔버스 요소 -->
+    </div>
+    
+
+    <script>
+        const slideCanvas = document.getElementById('slideCanvas'); // 캔버스 요소 가져오기
+        const slideText = slideCanvas.getContext('2d'); // 2D 컨텍스트 가져오기
+        const eventButton = document.getElementById('eventButton'); // 이벤트 도전 버튼 요소 가져오기
+        const fontOptions = document.getElementsByName('font'); // 폰트 선택 라디오 버튼들 가져오기
+        let isEventStarted = false; // 이벤트 시작 여부를 나타내는 변수
+        let currentFont = '궁서'; // 기본 폰트 설정
+        let fontSize = 100; // 기본 폰트 크기 설정
+
+        function drawTextDots(text) {
+            const canvasWidth = slideCanvas.width = slideContainer.clientWidth * (text.length / 8); // 캔버스 너비 설정
+            const canvasHeight = slideCanvas.height = 150; // 캔버스 높이 설정
+            slideText.clearRect(0, 0, canvasWidth, canvasHeight); // 캔버스 초기화
+            slideText.fillStyle = '#fff'; // 글자 색상을 흰색으로 설정
+            slideText.font = `${fontSize}px ${currentFont}`; // 글자 폰트와 크기 설정
+            slideText.fillText(text, 0, fontSize); // 텍스트 그리기
+
+            const imageData = slideText.getImageData(0, 0, canvasWidth, canvasHeight); // 이미지 데이터 가져오기
+            slideText.clearRect(0, 0, canvasWidth, canvasHeight); // 캔버스 초기화
+
+            for (let y = 0; y < canvasHeight; y += 4) { // 4px 간격으로 세로 스캔
+                for (let x = 0; x < canvasWidth; x += 4) { // 4px 간격으로 가로 스캔
+                    const index = (y * canvasWidth + x) * 4; // 이미지 데이터 인덱스 계산
+                    const alpha = imageData.data[index + 3]; // 알파 채널 값 가져오기
+                    if (alpha > 128) { // 알파 값이 128보다 크면 (투명하지 않으면)
+                        slideText.fillRect(x, y, 2, 2); // 해당 위치에 2x2 픽셀 사각형 그리기
+                    }
+                }
+            }
+            slideCanvas.setAttribute('data-text', text); // 텍스트 속성으로 저장
+        }
+
+        function initializeCanvas() {
+            const initialText = "천년고도 경주를 방문해주신 [입력글자] 님의 좋은 성적을 기원합니다."; // 초기 텍스트 설정
+            drawTextDots(initialText); // 초기 텍스트 그리기
+        }
+
+
+        //사용자로부터 텍스트입력 받기
+        eventButton.addEventListener('click', () => {
+            const name = prompt("이름이나 닉네임을 입력해주세요:"); // 사용자에게 이름 입력 받기
+            if (name) { // 이름이 입력되었을 때
+                const text = `천년고도 경주를 방문해주신 ${name} 님의 좋은 성적을 기원합니다.`; // 입력된 이름을 포함한 텍스트 설정
+                drawTextDots(text); // 텍스트 그리기
+                slideCanvas.classList.add('slide-animation'); // 슬라이드 애니메이션 클래스 추가
+                isEventStarted = true; // 이벤트 시작 상태로 변경
+            }
+        });
+
+        fontOptions.forEach(option => {
+            option.addEventListener('change', () => {
+                if (option.checked) { // 폰트 옵션이 선택되었을 때
+                    currentFont = option.value; // 현재 폰트 변경
+                    const text = slideCanvas.getAttribute('data-text') || "천년고도 경주를 방문해주신 [입력글자] 님의 좋은 성적을 기원합니다."; // 저장된 텍스트 또는 기본 텍스트 가져오기
+                    drawTextDots(text); // 텍스트 다시 그리기
+                }
+            });
+        });
+
+        initializeCanvas(); // 캔버스 초기화
+    </script>
+</body>
+</html>
