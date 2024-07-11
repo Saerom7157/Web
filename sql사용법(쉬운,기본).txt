@@ -1,0 +1,111 @@
+//mysql 폴더로 경로 이동
+cd C:\xampp\mysql\bin
+//mysql 접속
+mysql -uroot -p
+
+
+CREATE DATABASE mysite;
+// mysite DB 생성
+DROP DATABASE user;
+
+// user DB 삭제
+SHOW DATABASES;
+
+DB 목록 불러오기
+USE mysite;
+
+mysite DB 사용/접속
+
+//user 테이블 생성
+CREATE TABLE user( 
+    pid INT(11) NOT NULL AUTO_INCREMENT, //pid 필드 생성 숫자 1씩 증가
+    name VARCHAR(100) NOT NULL,  //name 필드 생성 문자
+    id VARCHAR(100) NOT NULL, //id 필드 생성 문자
+    pw VARCHAR(100) NOT NULL, //pw 필드 생성 문자
+    email VARCHAR(100) NOT NULL, //eamil 필드 생성 문자
+    created DATETIME NOT NULL, //created 필드 생성 날짜
+    status INT(1) NOT NULL,  //status 필드 생성 숫자
+    PRIMARY KEY(pid)); //pid를 프라이머리키로 생성
+
+//유저 테이블 구조 확인
+DESC user;
+
+//board 테이블 생성
+CREATE TABLE board(
+    pid INT(11) NOT NULL AUTO_INCREMENT,
+    user VARCHAR(10) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    created DATETIME NOT NULL,
+    view INT(11) NOT NULL,
+    PRIMARY KEY(pid));
+
+//board 테이블 삭제
+DROP TABLE board;
+
+//user 테이블 데이터을 삽입
+INSERT INTO user(name,id,pw,email,created,status)
+    -> VALUES ('장현서','admin','qwe123','a@naver.com',NOW(),1);
+
+
+
+//mysql 폴더로 경로 이동
+cd C:\xampp\mysql\bin
+//mysql 접속
+mysql -uroot -p
+
+
+CREATE DATABASE mysite;
+// mysite DB 생성
+DROP DATABASE user;
+// user DB 삭제
+SHOW DATABASES;
+DB 목록 불러오기
+USE mysite;
+mysite DB 사용/접속
+
+//user 테이블 생성
+CREATE TABLE user( 
+    pid INT(11) NOT NULL AUTO_INCREMENT, //pid 필드 생성 숫자 1씩 증가
+    name VARCHAR(100) NOT NULL,  //name 필드 생성 문자
+    id VARCHAR(100) NOT NULL, //id 필드 생성 문자
+    pw VARCHAR(100) NOT NULL, //pw 필드 생성 문자
+    email VARCHAR(100) NOT NULL, //eamil 필드 생성 문자
+    created DATETIME NOT NULL, //created 필드 생성 날짜
+    status INT(1) NOT NULL,  //status 필드 생성 숫자
+    PRIMARY KEY(pid)); //pid를 프라이머리키로 생성
+
+//유저 테이블 구조 확인
+DESC user;
+
+//board 테이블 생성
+CREATE TABLE board(
+    pid INT(11) NOT NULL AUTO_INCREMENT,
+    user VARCHAR(10) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    created DATETIME NOT NULL,
+    view INT(11) NOT NULL,
+    PRIMARY KEY(pid));
+
+//board 테이블 삭제
+DROP TABLE board;
+
+//user 테이블 데이터을 삽입
+INSERT INTO user(name,id,pw,email,created,status)
+    -> VALUES ('장현서','admin','qwe123','a@naver.com',NOW(),1);
+
+//데이터 업데이트
+ UPDATE user SET name="신주원",status=1 WHERE pid=4;
+
+//name id pw필드만 user테이블에서 조회
+SELECT name,id,pw FROM user;
+
+//모든 필드를 출력하는데 id admin인것만 조회
+SELECT * FROM user WHERE id = "admin";
+
+//user 테이블 pid를 기준으로 내림차순 정렬 조회
+SELECT * FROM user ORDER BY pid DESC;
+
+//최대 2개의 행만 조회
+SELECT * FROM user LIMIT 2;
