@@ -1,0 +1,83 @@
+CREATE DATABASE movie_reviews; //새로운 데이터베이스 생성 명령어  movie_reviews = 이름
+
+USE movie_reviews; //movie_reviews 데이터베이스를 사용하겠다 명령어
+
+CREATE TABLE movies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    release_year INT NOT NULL
+);
+
+
+
+//CREATE TABLE  테이블 생성 movies = 이름   => movies테이블생성
+
+//각 영화의 고유한 id는 정의하는 거라고 생각을 하면 쉽다
+id 는 INT(정수형)이고 AUTO_INCREMENT(자동_증가) PRIMARY(기본) KEY(키) => 영어만 알면 쉽다
+
+//영화의 제목을 저장하는 열을 정의한다라고 생각 하면 쉽다
+title VARCHAR(255) NOT NULL 이 열은 최대 255자의 문자열(VARCHAR)을 저장할 수 있으며, NULL 값을 허용하지 않습니다(NOT NULL).
+
+//영화의 설명을 저장하는 열을 정의라고 생각하면 쉽다
+description TEXT NOT NULL 열은 길이 제한이 없는 문자열(TEXT)을 저장할 수 있으며, NULL 값을 허용하지 않습니다(NOT NULL).
+
+//영화의 출시 연도를 저장하는 열을 정의라고 생각하면 쉽다
+release_year INT NOT NULL. 이 열은 정수형(INT)이고, NULL 값을 허용하지 않습니다(NOT NULL).
+
+
+
+
+
+CREATE TABLE reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT,
+    username VARCHAR(255) NOT NULL,
+    rating INT CHECK (rating >= 1 AND rating <= 5),
+    comment TEXT,
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
+
+CREATE TABLE reviews는 reviews라는 이름의 테이블을 생성하는 명령어입니다.
+
+id INT AUTO_INCREMENT PRIMARY KEY는 각 리뷰의 고유한 ID를 정의합니다. 이 ID는 정수형(INT)이고, 자동으로 증가하며(AUTO_INCREMENT), 기본 키(PRIMARY KEY)로 설정됩니다.
+
+movie_id INT는 리뷰가 작성된 영화의 ID를 저장하는 열을 정의합니다. 이 열은 movies 테이블의 id와 연결됩니다.
+
+username VARCHAR(255) NOT NULL은 리뷰를 작성한 사용자의 이름을 저장하는 열을 정의합니다. 이 열은 최대 255자의 문자열(VARCHAR)을 저장할 수 있으며, NULL 값을 허용하지 않습니다(NOT NULL).
+
+rating INT CHECK (rating >= 1 AND rating <= 5)는 리뷰의 평점을 저장하는 열을 정의합니다. 이 열은 정수형(INT)이고, 1에서 5 사이의 값만 허용됩니다(CHECK 제약 조건).
+
+comment TEXT는 리뷰의 내용을 저장하는 열을 정의합니다. 이 열은 길이 제한이 없는 문자열(TEXT)을 저장할 수 있습니다.
+
+FOREIGN KEY (movie_id) REFERENCES movies(id)는 movie_id가 movies 테이블의 id와 연결되도록 외래 키(FOREIGN KEY) 제약 조건을 설정합니다. 이로 인해 reviews 테이블의 movie_id는 반드시 movies 테이블에 존재하는 id여야 합니다.
+
+
+
+
+
+//전채 코드
+
+CREATE DATABASE movie_reviews;
+
+USE movie_reviews;
+
+CREATE TABLE movies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    release_year INT NOT NULL
+);
+
+CREATE TABLE reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT,
+    username VARCHAR(255) NOT NULL,
+    rating INT CHECK (rating >= 1 AND rating <= 5),
+    comment TEXT,
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
+
+
+
+
