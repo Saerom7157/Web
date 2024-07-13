@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Text</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style type="text/css">
+        body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: #222;
+  height: 100vh;
+}
+
+#text{
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  animation: effect 8s linear infinite;
+}
+#text2{
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  animation: effect2 8s linear infinite;
+}
+
+@keyframes effect {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes effect2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+span {
+  position: absolute;
+  left: 50%;
+  transform-origin: 0px 150px;
+  transform-style: flat;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #fff;
+}
+    </style>
+</head>
+<body>
+    <p id="text"></p>
+    <p id="text2"></p>
+    <script>
+        const str = "NSCODE YT CHANNEL SUBSCRIBE NOW";
+        const text = document.getElementById("text");
+        const text2= document.getElementById("text2");
+        window.onload = function(){
+            for (let i = 0; i < str.length; i++) {
+                let span = document.createElement('span');
+                span.innerHTML = str[i] 
+                text.appendChild(span);
+                span.style.transform = `rotate(${11*i}deg)`;
+            }
+            for (let i = 0; i < str.length; i++) {
+                let span = document.createElement('span');
+                span.innerHTML = str[i] 
+                text2.appendChild(span);
+                span.style.transformOrigin = '0px 200px';
+                span.style.transform = `rotate(${11*i}deg)`;
+                
+            }
+        }
+    </script>
+</body>
+</html>
