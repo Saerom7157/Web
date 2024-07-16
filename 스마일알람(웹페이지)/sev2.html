@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알람 설정</title>
+    <style>
+        @font-face {
+            font-family: 'Font1';
+            src: url('./Font/NanumBrushScript-Regular.ttf');
+        }
+        *{
+            text-decoration: none;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .container {
+            width: 360px;
+            height: 640px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            z-index: 99;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+            margin: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            font-size: 24px;
+        }
+        .time-picker {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        .time-scroll {
+            width: 60px;
+            height: 120px;
+            overflow-y: scroll;
+            text-align: center;
+            font-size: 24px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            position: relative;
+        }
+        .time-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .time-items {
+            padding: 40px 0;
+        }
+        .time-item {
+            height: 40px;
+            line-height: 40px;
+            color: #ccc;
+        }
+        .time-item.selected {
+            color: #000;
+        }
+        .am-pm-scroll {
+            width: 80px;
+            height: 120px;
+            overflow-y: scroll;
+            text-align: center;
+            font-size: 24px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            position: relative;
+            margin-right: 20px;
+        }
+        .am-pm-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .am-pm-items {
+            padding: 40px 0;
+        }
+        .am-pm-item {
+            height: 40px;
+            line-height: 40px;
+            color: #ccc;
+        }
+        .am-pm-item.selected {
+            color: #000;
+        }
+        .time-highlight {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            top: 60px;
+            height: 40px;
+            border-top: 1px solid #6e8efb;
+            border-bottom: 1px solid #6e8efb;
+            pointer-events: none;
+        }
+        .voice-section {
+            padding: 30px 20px;
+            background-color: #ffffff;
+        }
+        .voice-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .voice-options {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        .voice-option {
+            width: 90px;
+            height: 90px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+            margin-bottom: 8px;
+        }
+        .voice-option.selected {
+            border-color: #6e8efb;
+            background-color: #f0f4ff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(110,142,251,0.3);
+        }
+        .voice-icon {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+        .voice-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            margin-bottom: 100px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        #notification {
+            text-align: center;
+            padding: 10px;
+            color: #6e8efb;
+        }
+
+        .modal-background {
+            opacity: 0;
+            position: absolute;
+            width: 360px;
+            height: 640px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s;
+        }
+        .modal-background.visible {
+            opacity: 1;
+        }
+        #modal1-none.visible {
+            opacity: 0;
+        }
+        .modal-content {
+            position: relative;
+            width: 360px;
+            height: 640px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .result-popup {
+            width: 300px;
+            padding: 10px;
+            position: relative;
+            background: rgb(255, 255, 255);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: center;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+        }
+        .result-popup h2 {
+            color: #333;
+        }
+        .result-popup p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .result-popup button {
+            background: #6e8efb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /*토글*/
+
+        .toggle-switch {
+            position: relative;
+            display: flex;
+            width: 40px;
+            height: 20px;
+            margin-top: 19px;
+            margin-bottom: 15px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            font-size: 1px;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #6e8efb;
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        .modal2-background {
+            visibility: hidden;
+            position: absolute;
+            z-index: 999;
+            width: 360px;
+            height: 640px;
+            background-color: white;
+            background-image: url('./img/Modal2-bg.png');
+            background-position: center;
+            background-size: cover;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: visibility 0.3s;
+        }
+
+        .modal2-background>h2{
+            margin-bottom: 100px;
+            font-family: 'Font1';
+            font-size: 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .modal2_btns {
+            position: absolute;
+            margin-top: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        .modal2_btns>a {
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .modal2_btns>#X:hover {
+            background-color: #6e8efb;
+            color: white;
+        }
+        .modal2_btns>a:active {
+            background-color: #5a6dd1;
+        }
+
+        .modal2_btns>#X{
+            background-color: rgb(255, 255, 255);
+            font-size: 25px;
+            width: 20px;
+            padding: 15px 20px;
+            border-radius: 50px;
+        }
+        .modal2_btns>#Again{
+            background-color: rgba(255, 255, 255, 0.768);
+            margin-top: 50px;
+            font-size: 12px;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="sev_2">
+        <h1>알람 설정</h1>
+        <div class="time-picker">
+            <div class="am-pm-scroll" id="amPmPicker">
+                <div class="am-pm-items"></div>
+            </div>
+            <div class="time-scroll" id="hourPicker">
+                <div class="time-items"></div>
+            </div>
+            <span style="font-size: 24px; margin: 0 10px;">:</span>
+            <div class="time-scroll" id="minutePicker">
+                <div class="time-items"></div>
+            </div>
+            <div class="time-highlight"></div>
+        </div>
+        <div id="notification"></div>
+        <div class="voice-section">
+            <div class="voice-title">목소리 선택</div>
+            <div style="font-size: 12px; margin-bottom: 20px; margin-left: 50px;">📢클릭하시면 목소리를 들을수 있습니다📢</div>
+            <div class="voice-options">
+                <div class="voice-option" data-voice="1" onclick="selectVoice(this, 'sound1.mp3')">
+                    <div class="voice-icon">🎤</div>
+                    <div class="voice-label">AI 1</div>
+                </div>
+                <div class="voice-option" data-voice="2" onclick="selectVoice(this, 'sound2.mp3')">
+                    <div class="voice-icon">🔊</div>
+                    <div class="voice-label">AI 2</div>
+                </div>
+                <div class="voice-option" data-voice="3" onclick="selectVoice(this, 'sound3.mp3')">
+                    <div class="voice-icon">🗣️</div>
+                    <div class="voice-label">AI 3</div>
+                </div>
+                <div class="voice-option" data-voice="4" onclick="selectVoice(this, 'sound4.mp3')">
+                    <div class="voice-icon">🎶</div>
+                    <div class="voice-label">AI 4</div>
+                </div>
+                <div class="voice-option" data-voice="5" onclick="selectVoice(this, 'sound5.mp3')">
+                    <div class="voice-icon">📢</div>
+                    <div class="voice-label">AI 5</div>
+                </div>
+                <div class="voice-option" data-voice="6" onclick="selectVoice(this, 'sound6.mp3')">
+                    <div class="voice-icon">📣</div>
+                    <div class="voice-label">AI 6</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="submit-btn" id="checkedBtnOn" onclick="nextPage()">확인</button>
+
+    <div class="modal-background" id="resultPopup">
+        <div class="modal-content" style="background-color: #ffffff; width: 100%; height: 100%; z-index: 999;">
+            <h1 style="width: 100%; margin-bottom: 17px; z-index: 999;">스마일 알람</h1>
+            <div class="result-popup" style="margin-bottom: 475px;">
+                <p style="margin-top: 20px;" id="amPmText"></h3>
+                <p style="margin-left: 5px; font-size: 35px;" id="timeText"></p>
+                <p style="margin-left: 110px; margin-right: 10px; font-size: 13px; margin-top: 15px">매일</p>
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggle1">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <a href="" id="modal1-none" class="submit-btn" style="position: absolute; cursor: pointer;">뒤로</a>
+        </div>
+    </div>
+
+    <div class="modal2-background" id="modal2Background">
+        <h2>새벽의 어둠을 뚫고 일어나는 당신 <br> 
+            그 자체로 이미 승리자입니다. <br>
+            오늘 하루도 당신의 열정으로 <br> 빛나게 만들어 보세요.<br>
+            고난은 곧 기회입니다.</h2>
+        <div class="modal2_btns">
+            <a href="#" id="X">X</a><br>
+            <a href="#" id="Again">5분 후 다시 알림</a>
+        </div>
+    </div>
+    
+
+    <script>
+        const hourPicker = document.getElementById('hourPicker');
+        const minutePicker = document.getElementById('minutePicker');
+        const amPmPicker = document.getElementById('amPmPicker');
+        const notification = document.getElementById('notification');
+        const resultPopup = document.getElementById('resultPopup');
+        const amPmText = document.getElementById('amPmText');
+        const timeText = document.getElementById('timeText');
+        const modal2Background = document.getElementById('modal2Background');
+
+        function createTimeItems(container, items, className) {
+            const itemsContainer = container.querySelector(`.${className}`);
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = `${className.slice(0, -1)} ${item === items[1] ? 'selected' : ''}`;
+                div.textContent = item;
+                itemsContainer.appendChild(div);
+            });
+            // Add extra items for smooth infinite scroll
+            for (let i = 0; i < 3; i++) {
+                const div = document.createElement('div');
+                div.className = className.slice(0, -1);
+                div.textContent = items[i];
+                itemsContainer.appendChild(div);
+            };
+        }
+
+        createTimeItems(hourPicker, Array.from({length: 12}, (_, i) => (i + 1).toString().padStart(2)), 'time-items');
+        createTimeItems(minutePicker, Array.from({length: 60}, (_, i) => i.toString().padStart(2, '0')), 'time-items');
+        createTimeItems(amPmPicker, ['오전', '오후'], 'am-pm-items');
+
+        function setupInfiniteScroll(picker, itemCount) {
+            const container = picker.querySelector('.time-items') || picker.querySelector('.am-pm-items');
+            const itemHeight = 40;
+            picker.addEventListener('scroll', () => {
+                if (picker.scrollTop < itemHeight) {
+                    picker.scrollTop += itemCount * itemHeight;
+                } else if (picker.scrollTop > (itemCount + 1) * itemHeight) {
+                    picker.scrollTop -= itemCount * itemHeight;
+                }
+                updateSelection(picker);
+            });
+        }
+
+        function updateSelection(picker) {
+            const items = picker.querySelectorAll('.time-item, .am-pm-item');
+            const middleIndex = Math.floor(picker.scrollTop / 40);
+            items.forEach((item, index) => {
+                item.classList.toggle('selected', index === middleIndex);
+            });
+        }
+
+        setupInfiniteScroll(hourPicker, 12);
+        setupInfiniteScroll(minutePicker, 60);
+        setupInfiniteScroll(amPmPicker, 2);
+
+        let currentAudio = null;
+
+        function selectVoice(element, soundFile) {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            currentAudio = new Audio(soundFile);
+            currentAudio.play();
+
+            document.querySelectorAll('.voice-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function nextPage() {
+            const selectedHour = hourPicker.querySelector('.time-item.selected').textContent;
+            const selectedMinute = minutePicker.querySelector('.time-item.selected').textContent;
+            const amPm = amPmPicker.querySelector('.am-pm-item.selected').textContent;
+            const selectedVoice = document.querySelector('.voice-option.selected')?.dataset.voice || '1';
+
+            amPmText.textContent = amPm;
+            timeText.textContent = `${selectedHour}:${selectedMinute}`;
+
+            showPopup();
+        }
+
+        function showPopup() {
+            resultPopup.classList.add('visible');
+        }
+
+        function closePopup() {
+            modal2Background.style.visibility = 'hidden';
+        }
+
+        document.querySelector('.result-popup').addEventListener('click', () => {
+            modal2Background.style.visibility = 'visible';
+        });
+
+        document.querySelector('#X').addEventListener('click', closePopup);
+
+        // 페이지 로드 시 초기 시간 설정 (오전 7시 00분)
+        window.addEventListener('load', () => {
+            amPmPicker.scrollTop = 0;
+            hourPicker.scrollTop = 6 * 40;
+            minutePicker.scrollTop = 0;
+            updateSelection(amPmPicker);
+            updateSelection(hourPicker);
+            updateSelection(minutePicker);
+        });
+    </script>
+</body>
+</html>
